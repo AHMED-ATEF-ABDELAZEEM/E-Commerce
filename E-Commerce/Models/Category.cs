@@ -4,9 +4,11 @@
     {
         public string CategoryId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
+        public int CountType { get; set; }
         public int Amount { get; set; }
-        public string Day {  get; set; }
-        public string Date {  get; set; }
-        public string Time { get; set; }
+        public string CreatedAt { get; set; }
+        public string UpdatedAt { get; set; }
+
     }
 }

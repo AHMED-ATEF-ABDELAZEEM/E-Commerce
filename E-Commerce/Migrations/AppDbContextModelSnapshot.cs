@@ -29,11 +29,10 @@ namespace E_Commerce.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CountType")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Day")
+                    b.Property<string>("CreatedAt")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -45,7 +44,7 @@ namespace E_Commerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Time")
+                    b.Property<string>("UpdatedAt")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

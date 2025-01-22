@@ -11,22 +11,62 @@ namespace E_Commerce.Service
         {
             this.CategoryRepository = CategoryRepository;
         }
-        public async Task AddNewCategory (CreateCategoryVM model)
+        public async Task AddNewCategoryAsync (CreateCategoryVM model)
         {
             var Category = new Category();
             Category.CategoryId = Guid.NewGuid().ToString();
             Category.Name = model.Name;
+            Category.Description = model.Description;
             Category.Amount = 0;
             DateTime Current = DateTime.Now;
-            Category.Time = Current.ToString("hh:mm:tt");
-            Category.Day = Current.ToString("dddd");
-            Category.Date = Current.ToString("dd/MM/yyyy");
+            Category.CreatedAt = Current.ToString("dd/MM/yyyy");
+            Category.UpdatedAt = Current.ToString("dd/MM/yyyy");
             await CategoryRepository.AddAsync(Category);
         }
 
         public async Task<bool> IsCategoryExistAsync (string name)
         {
-            return await CategoryRepository.IsCategoryExistAsync(name);
+            return await CategoryRepository.IsCategoryExistForAddAsync(name);
+        }
+
+        public async Task<List<Category>> GetAllCategoryAsync ()
+        {
+            return await CategoryRepository.GetAllAsync();
+        }
+        public async Task<Category> getCategoryById (string Id)
+        {
+            return await CategoryRepository.GetByIdAsync(Id);
+        }
+
+        public async Task DeleteCategoryByIdAsync (string Id)
+        {
+             await CategoryRepository.DeleteAsync(Id);
+        }
+
+        public async Task UpdateCategory (UpdateCategoryVM model)
+        {
+            var category = await CategoryRepository.GetByIdAsync(model.Id);
+            category.Name = model.Name;
+            category.Description = model.Description;
+            category.UpdatedAt = DateTime.Now.ToString("dd/MM/yyyy");
+            await CategoryRepository.UpdateAsync(category);
+        }
+
+        public async Task<UpdateCategoryVM> getUpdatedViewModel (string Id)
+        {
+            var category = await CategoryRepository.GetByIdAsync (Id);
+            var model = new UpdateCategoryVM()
+            {
+                Id = category.CategoryId,
+                Name = category.Name,
+                Description = category.Description,
+            };
+            return model;
+        }
+
+        public async Task<bool> IsCategoryExistForUpdateAsync(string Id, string name)
+        {
+            return await CategoryRepository.IsCategoryExistForUpdateAsync (Id, name);
         }
     }
 }

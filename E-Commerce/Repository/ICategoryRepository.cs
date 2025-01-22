@@ -4,6 +4,7 @@ namespace E_Commerce.Repository
 {
     public interface ICategoryRepository : IRepository<Category>
     {
-         Task<bool> IsCategoryExistAsync(string name);
+         Task<bool> IsCategoryExistForAddAsync(string name);
+         Task<bool> IsCategoryExistForUpdateAsync(string Id,string name);
     }
 }

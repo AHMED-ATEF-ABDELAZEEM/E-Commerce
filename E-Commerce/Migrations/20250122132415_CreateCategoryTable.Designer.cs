@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250122101625_ChangeTypeOfDateToString")]
-    partial class ChangeTypeOfDateToString
+    [Migration("20250122132415_CreateCategoryTable")]
+    partial class CreateCategoryTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,11 +32,10 @@ namespace E_Commerce.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CountType")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Day")
+                    b.Property<string>("CreatedAt")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -48,7 +47,7 @@ namespace E_Commerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Time")
+                    b.Property<string>("UpdatedAt")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

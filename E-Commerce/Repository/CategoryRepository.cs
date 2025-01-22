@@ -40,9 +40,16 @@ namespace E_Commerce.Repository
             await context.SaveChangesAsync();
         }
 
-        public async Task<bool> IsCategoryExistAsync(string name)
+        public async Task<bool> IsCategoryExistForAddAsync(string name)
         {
+            // To Ensure That No Category With This Name At Add
             return await context.Categories.AnyAsync(x => x.Name.ToLower() == name.ToLower());
+        }
+
+        public async Task<bool> IsCategoryExistForUpdateAsync(string Id,string name)
+        {
+            // To Ensure That Only One Category Exist That I Updated
+            return await context.Categories.AnyAsync(x => x.Name.ToLower() == name.ToLower() && x.CategoryId != Id);
         }
     }
 }
