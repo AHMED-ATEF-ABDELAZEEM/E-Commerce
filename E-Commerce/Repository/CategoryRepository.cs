@@ -23,19 +23,22 @@ namespace E_Commerce.Repository
             await context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(string Id)
+        public async Task DeleteAsync(string Id)
         {
-            throw new NotImplementedException();
+            var Category = await GetByIdAsync(Id);
+            context.Categories.Remove(Category);
+            await context.SaveChangesAsync();
         }
 
-        public Task<List<Category>> GetAllAsync()
+        public async Task<List<Category>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await context.Categories.ToListAsync();
         }
 
-        public Task UpdateAsync(Category model)
+        public async Task UpdateAsync(Category model)
         {
-            throw new NotImplementedException();
+            context.Categories.Update(model);
+            await context.SaveChangesAsync();
         }
     }
 }
