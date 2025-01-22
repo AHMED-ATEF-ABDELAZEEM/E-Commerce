@@ -1,4 +1,6 @@
 using E_Commerce.Models;
+using E_Commerce.Repository;
+using E_Commerce.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce
@@ -11,6 +13,9 @@ namespace E_Commerce
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<CategoryService, CategoryService>();
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {

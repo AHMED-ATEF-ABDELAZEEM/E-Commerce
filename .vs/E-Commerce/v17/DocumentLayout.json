@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\views\\category\\addnewcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\views\\category\\addnewcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\service\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\service\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\repository\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\repository\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,64 +39,80 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AddNewCategory.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Views\\Category\\AddNewCategory.cshtml",
+              "RelativeDocumentMoniker": "E-Commerce\\Views\\Category\\AddNewCategory.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Views\\Category\\AddNewCategory.cshtml",
+              "RelativeToolTip": "E-Commerce\\Views\\Category\\AddNewCategory.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-22T10:02:07.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "E-Commerce\\Controllers\\CategoryController.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "E-Commerce\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA5wBoAAABZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T09:57:05.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Service\\CategoryService.cs",
+              "RelativeDocumentMoniker": "E-Commerce\\Service\\CategoryService.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Service\\CategoryService.cs",
+              "RelativeToolTip": "E-Commerce\\Service\\CategoryService.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBoAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T09:40:30.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CategoryRepository.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Repository\\CategoryRepository.cs",
               "RelativeDocumentMoniker": "E-Commerce\\Repository\\CategoryRepository.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Repository\\CategoryRepository.cs",
               "RelativeToolTip": "E-Commerce\\Repository\\CategoryRepository.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAowBgAAAAAAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAcwC8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T07:32:47.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ICategoryRepository.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Repository\\ICategoryRepository.cs",
-              "RelativeDocumentMoniker": "E-Commerce\\Repository\\ICategoryRepository.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Repository\\ICategoryRepository.cs",
-              "RelativeToolTip": "E-Commerce\\Repository\\ICategoryRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T07:31:55.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Category.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Models\\Category.cs",
               "RelativeDocumentMoniker": "E-Commerce\\Models\\Category.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Models\\Category.cs",
               "RelativeToolTip": "E-Commerce\\Models\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T06:50:32.041Z"
+              "WhenOpened": "2025-01-22T06:50:32.041Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Repository\\IRepository.cs",
-              "RelativeDocumentMoniker": "E-Commerce\\Repository\\IRepository.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Repository\\IRepository.cs",
-              "RelativeToolTip": "E-Commerce\\Repository\\IRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T06:30:52.715Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Program.cs",
               "RelativeDocumentMoniker": "E-Commerce\\Program.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Program.cs",
               "RelativeToolTip": "E-Commerce\\Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAABNAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAgwBQAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T07:04:40.505Z"
+              "WhenOpened": "2025-01-22T07:04:40.505Z",
+              "EditorCaption": ""
             }
           ]
         }

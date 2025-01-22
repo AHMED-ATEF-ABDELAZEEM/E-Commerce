@@ -18,7 +18,6 @@ namespace E_Commerce.Repository
         }
         public async Task AddAsync(Category model)
         {
-            model.CategoryId =  Guid.NewGuid().ToString();
             await context.Categories.AddAsync(model);
             await context.SaveChangesAsync();
         }
@@ -39,6 +38,11 @@ namespace E_Commerce.Repository
         {
             context.Categories.Update(model);
             await context.SaveChangesAsync();
+        }
+
+        public async Task<bool> IsCategoryExistAsync(string name)
+        {
+            return await context.Categories.AnyAsync(x => x.Name.ToLower() == name.ToLower());
         }
     }
 }
