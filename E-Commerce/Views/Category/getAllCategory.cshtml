@@ -1,72 +1,145 @@
 ﻿@model IEnumerable<E_Commerce.Models.Category>
 
 
+<style>
+    table {
+        width: 100%;
+        text-align: center;
+        border: none;
+        outline: none;
+        border-collapse: collapse;
+    }
 
-<h1>get All Category</h1>
+    thead th {
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 10px;
+        padding: 15px 0;
+    }
+
+    table td {
+        margin-top: 10px;
+        padding: 15px 0;
+        font-weight: 600;
+    }
+
+    .description {
+        width: 20%;
+    }
+
+    tbody tr:hover {
+        background-color: #e6f7ff;
+    }
+
+    .btn {
+        display:inline-block;
+        background-color: rgba(140, 51, 255, 1);
+        padding: 5px 15px;
+        border-radius: 5px;
+        color: white;
+        transition: .5s;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .btn:hover {
+            cursor: pointer;
+            opacity: .8;
+            transform: scale(1.2);
+        }
+
+    #add {
+        background-color: rgba(140, 51, 255, 1);
+        padding: 7px 15px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        color: white;
+        transition: .5s;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 20px;
+        margin-top:20px;
+    }
+
+        #add:hover {
+            cursor: pointer;
+            opacity: .8;
+            transform: scale(1.1);
+        }
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CountType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedAt)
-            </th>
+    </style>
 
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
 
-            <td>
-                 <a asp-action="getCategoryById" asp-route-Id="@item.CategoryId">Details</a>
-            </td>
-            <td>
-                 <a asp-action="UpdateCategoryById" asp-route-Id="@item.CategoryId">Update</a>
-            </td>
-            <td>
-                <a asp-action="DeleteCategoryById" asp-route-Id="@item.CategoryId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-<div>
-    <a asp-action="AddNewCategory" class="btn btn-success">Add</a>
+<div id="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th class="description">Description</th>
+                <th>Amount</th>
+                <th>Count</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>update</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Name</td>
+                <td class="description">@category.Description</td>
+                <td>@category.Amount</td>
+                <td>@category.CountType</td>
+                <td>@category.CreatedAt</td>
+                <td>@category.UpdatedAt</td>
+                <td><a class="btn" id="update" data-id="@category.CategoryId">Update</a></td>
+                <td><a class="btn" id="delete" data-id="@category.CategoryId">Delete</a></td>
+            </tr>
+        }
+    </table>
+    <button id="add" >Add New Category</button>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).on('click', '#delete', function () {
+        var itemId = $(this).data('id');  // Get the item ID
+        $.ajax({
+            url: '/Category/DeleteCategory/' + itemId,
+            type: 'GET',
+            success: function (data) {
+                // Update the item list after deletion
+                $('#container').html(data);  // Replace the content of the item list
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).on('click', '#update', function () {
+        var itemId = $(this).data('id');  // Get the item ID
+        $.ajax({
+            url: '/Category/UpdateCategory/' + itemId,
+            type: 'GET',
+            success: function (data) {
+                $('#container').html(data);  // Replace the content of the item list
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).on('click', '#add', function () {
+        console.log("test");
+        $.ajax({
+            url: "/Category/AddNewCategory",
+            type: 'GET',
+            success: function (data) {
+                $('#container').html(data);  // Replace the content of the item list
+            }
+        })
+    });
+</script>

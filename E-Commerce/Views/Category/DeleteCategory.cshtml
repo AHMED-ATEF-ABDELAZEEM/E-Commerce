@@ -1,0 +1,107 @@
+﻿@model E_Commerce.Models.Category
+
+
+<style>
+    .ConfirmDelete {
+        background-color: darkgray;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+        .ConfirmDelete h2 {
+            margin: 0.8rem 0;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+            .ConfirmDelete h2:first-child {
+                color: #e11d48;
+                font-size: 1.75rem;
+            }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .btn {
+        padding: 0.75rem 2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+
+    #back {
+        background-color: #f3f4f6;
+        color: #333;
+        border: 1px solid #e5e7eb;
+    }
+
+        #back:hover {
+            opacity: .8;
+            background-color: #e5e7eb;
+        }
+
+    #confirmDelete {
+        background-color: #e11d48;
+        color: white;
+    }
+
+        #confirmDelete:hover {
+            opacity:.8;
+            background-color: #be123c;
+        }
+
+</style>
+<div id="container">
+
+    <div class="ConfirmDelete">
+        <h2>Are You Sure You Want To Delete ?</h2>
+        <h2>@Model.Name</h2>
+        <h2>@Model.Description</h2>
+        <div class="button">
+            <a id="back" class="btn">Back</a>
+            <a id="confirmDelete" data-id="@Model.CategoryId" class="btn">Delete</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).on('click', '#back', function () {
+        $.ajax({
+            url: "/Category/getAllCategory",
+            type: 'GET',
+            success: function (data) {
+                $("#container").html(data);
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).on('click', '#confirmDelete', function () {
+        var CategoryId = $(this).data('id');
+        $.ajax({
+            url: "/Category/ConfirmDelete/" + CategoryId,
+            type : 'POST',
+            success : function (data)
+            {
+                $("#container").html(data);
+            }
+            
+        })
+    })
+</script>
+
+
+
+

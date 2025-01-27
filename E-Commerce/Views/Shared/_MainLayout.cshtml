@@ -1,0 +1,70 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />  *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+@*     <link rel="stylesheet" href="~/E_Commerce.styles.css" asp-append-version="true" /> *@
+
+</head>
+<body>
+    <div class="Header">
+        <h2>E-Commerce</h2>
+        <ul class="Nav">
+            <li  onclick="ChangeColor(this)">Home</li>
+            <li  onclick="ChangeColor(this)">Offer</li>
+            <li id="category"  onclick="ChangeColor(this)">Category</li>
+            <li  onclick="ChangeColor(this)">history</li>
+            <li  onclick="ChangeColor(this)">Wishlist</li>
+            <li  onclick="ChangeColor(this)">Cart</li>
+            <li  onclick="ChangeColor(this)">Acount</li>
+            <li  onclick="ChangeColor(this)">Logout</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <div class="footer">
+        <h3>E-Commerce</h3>
+        <h3>Created By Eng Ahmed Atef</h3>
+        <h3>Contact : ahmedatefabdelazeem@gmail.com</h3>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="~/js/site.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#category').click(function () {
+                // Make AJAX request
+                $.ajax({
+                    url: "Category/getAllCategory",
+                    type: 'GET', 
+                    success: function (response) {
+                        $('.content').html(response);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

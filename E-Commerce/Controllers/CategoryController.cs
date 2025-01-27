@@ -15,7 +15,7 @@ namespace E_Commerce.Controllers
         [HttpGet]
         public IActionResult AddNewCategory ()
         {
-            return View();
+            return PartialView();
         }
 
         [HttpPost]
@@ -31,7 +31,7 @@ namespace E_Commerce.Controllers
                 await CategoryService.AddNewCategoryAsync (model);
                 return RedirectToAction("getAllCategory");
             }
-            return View();
+            return PartialView();
         }
 
 
@@ -39,44 +39,51 @@ namespace E_Commerce.Controllers
         public async Task<IActionResult> getAllCategory ()
         {
             var categories = await CategoryService.GetAllCategoryAsync();
-            return View(categories);
+            return PartialView(categories);
         }
 
         [HttpGet]
-        public async Task<ActionResult> getCategoryById (string Id)
+        public async Task<IActionResult> getCategoryById (string Id)
         {
             var category = await CategoryService.getCategoryById(Id);
             return View(category);
         }
 
         [HttpGet]
-        public async Task<IActionResult> DeleteCategoryById (string Id)
+        public async Task<IActionResult> DeleteCategory (string Id)
+        {
+            var category = await CategoryService.getCategoryById(Id);
+            return PartialView(category);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ConfirmDelete (string Id)
         {
             await CategoryService.DeleteCategoryByIdAsync(Id);
             return RedirectToAction("getAllCategory");
         }
 
         [HttpGet]
-        public async Task<IActionResult> UpdateCategoryById(string Id)
+        public async Task<IActionResult> UpdateCategory(string Id)
         {
             var model = await CategoryService.getUpdatedViewModel(Id);
-            return View(model);
+            return PartialView(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateCategoryById (UpdateCategoryVM model)
+        public async Task<IActionResult> UpdateCategory (UpdateCategoryVM model)
         {
             if(await CategoryService.IsCategoryExistForUpdateAsync(model.Id,model.Name))
             {
-                ModelState.AddModelError("model.Name", "This Category Is Already Exist Please Enter Diggrent Category");
+                ModelState.AddModelError("model.Name", "This Category Is Already Exist Please Enter Different Category");
             }
             if (ModelState.IsValid)
             {
                await CategoryService.UpdateCategory(model);
                return RedirectToAction("getAllCategory");
             }
-            return View(model);
+            return PartialView(model);
         }
     }
 }

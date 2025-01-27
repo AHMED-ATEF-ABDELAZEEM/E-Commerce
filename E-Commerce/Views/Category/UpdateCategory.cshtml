@@ -1,0 +1,133 @@
+﻿@model E_Commerce.ViewModel.UpdateCategoryVM
+
+<style>
+    .form {
+        width:350px;
+        padding:20px;
+        background-color:gray;
+        border-radius:10px;
+        margin:1rem auto;
+        opacity:.7;
+    }
+
+    .form-group input {
+        background-color: rgba(246, 245, 245, 1);
+        border:none;
+        outline:none;
+        padding:10px 15px;
+        border-radius:10px;
+        transition:.5s;
+        margin:10px auto;
+        width:85%;
+        font-size:20px;
+    }
+    .form label{
+        font-weight:bold;
+        display:block;
+    }
+    
+
+            .form input:hover{
+                transform:scale(1.1);
+            }
+
+    .form h2{
+        text-align:center;
+        margin-bottom:20px;
+    }
+
+    .form-group {
+        margin:10px 0;
+    }
+
+    .buttons {
+        display:flex;
+        justify-content:space-between;
+        margin-top:30px;
+    }
+
+        .buttons .btn {
+        display:inline-block;
+        padding:8px 16px;
+        border: none;
+        outline: none;
+        background-color: rgba(140, 51, 255, 1);
+        margin:0 10px;
+    }
+
+    .text-danger{
+        color:red;
+        font-size:15px;
+    }
+</style>
+
+
+<div id="container">
+    <div class="form">
+        <h2>Update Category</h2>
+        <form id="updateForm" asp-action="UpdateCategory">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" ></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" ></label>
+                <input asp-for="Description"  />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="buttons">
+                <a class="btn" id="back">Back</a>
+                <input class="btn" type="submit" value="Update"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).on('click', '#back', function () {
+        $.ajax({
+            url: "/Category/getAllCategory",
+            type: 'GET',
+            success: function (data) {
+                $("#container").html(data);
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#updateForm').submit(function (e) {
+            e.preventDefault(); // Prevent the default form submission.
+
+            const form = $(this);
+            const formData = form.serialize(); // Serialize the form data.
+
+            // Step 1: Send update request to the server
+            $.ajax({
+                url: "/Category/UpdateCategory", // The form's action URL.
+                type: 'POST',
+                data: formData,
+                success: function (data) {
+                    $("#container").html(data);
+                },
+            });
+        });
+    });
+</script>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+

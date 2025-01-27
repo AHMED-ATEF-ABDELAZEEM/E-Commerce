@@ -1,22 +1,77 @@
-html {
-  font-size: 14px;
+
+
+* {
+    padding: 0;
+    margin: 0;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+html, body {
+    background-color: rgba(246, 245, 245, 1);
+    height: 100%; /* Ensures the body fills the viewport height */
+    display: flex; /* Makes the body a flex container */
+    flex-direction: column; /* Stacks children vertically */
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.Header {
+    background-color: rgba(140, 51, 255, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    height: 60px;
+    color: white;
+    margin-bottom: 30px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+    .Header h2 {
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+.Nav {
+    display: flex;
+    align-items: center;
+    width: 65%;
+    margin-left: 20px;
 }
 
-body {
-  margin-bottom: 60px;
+    .Nav li {
+        list-style: none;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin: 0 10px;
+        transition: .4s;
+        cursor: pointer;
+    }
+
+        .Nav li:hover {
+            /*background-color:white;*/
+            transform: scale(1.2);
+            color: white;
+        }
+
+
+/* Content */
+.content {
+    background-color: #fff;
+    padding-top: 30px;
+    width: 90%;
+    margin: auto;
+    border-radius: 20px;
+    flex: 1;
+    margin-top: 130px;
+}
+/* footer */
+.footer {
+    margin-top: 30px;
+    background-color: rgba(140, 51, 255, 1);
+    align-items: center;
+    padding: 20px 30px;
+    height: 60px;
+    color: white;
 }
