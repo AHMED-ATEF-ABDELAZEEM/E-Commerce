@@ -10,5 +10,7 @@
         public string CreatedAt { get; set; }
         public string UpdatedAt { get; set; }
 
+        public virtual ICollection<Product> Product_ref { get; set; }
+
     }
 }

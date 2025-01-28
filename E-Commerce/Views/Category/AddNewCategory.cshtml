@@ -68,7 +68,7 @@
 <div id="container">
     <div class="form">
         <h2>Add New Category</h2>
-        <form id="AddForm" asp-action="UpdateCategory">
+        <form id="AddForm" asp-action="AddNewCategory">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name"></label>
@@ -88,6 +88,7 @@
     </div>
 </div>
 
+
 <script>
     $(document).on('click', '#back', function () {
         $.ajax({
@@ -104,39 +105,8 @@
     $(document).ready(function () {
         $('#AddForm').submit(function (e) {
             e.preventDefault(); // Prevent the default form submission.
-
             const form = $(this);
             const formData = form.serialize(); // Serialize the form data.
-
-            // Disable the submit button to prevent multiple submissions
-            const submitButton = form.find('button[type="submit"]');
-            submitButton.prop('disabled', true);
-
-            // Send the request to the server
-            $.ajax({
-                url: "/Category/AddNewCategory", // The form's action URL.
-                type: 'POST',
-                data: formData,
-                success: function (data) {
-                    $("#container").html(data);
-                },
-                complete: function () {
-                    // Re-enable the submit button after the request completes
-                    submitButton.prop('disabled', false);
-                }
-            });
-        });
-    });
-</script>
-
-@* <script>
-    $(document).ready(function () {
-        $('#AddForm').submit(function (e) {
-            e.preventDefault(); // Prevent the default form submission.
-
-            const form = $(this);
-            const formData = form.serialize(); // Serialize the form data.
-
             // Step 1: Send update request to the server
             $.ajax({
                 url: "/Category/AddNewCategory", // The form's action URL.
@@ -148,7 +118,7 @@
             });
         });
     });
-</script> *@
+</script>
 
 
 @section Scripts {

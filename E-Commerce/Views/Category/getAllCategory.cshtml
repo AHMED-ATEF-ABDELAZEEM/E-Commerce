@@ -82,8 +82,8 @@
                 <th>Count</th>
                 <th>Created At</th>
                 <th>Updated At</th>
-                <th>update</th>
-                <th>delete</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
 
@@ -133,7 +133,6 @@
 
 <script>
     $(document).on('click', '#add', function () {
-        console.log("test");
         $.ajax({
             url: "/Category/AddNewCategory",
             type: 'GET',
