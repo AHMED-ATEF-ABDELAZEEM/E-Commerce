@@ -3,7 +3,7 @@ using E_Commerce.Models;
 using E_Commerce.Repository;
 namespace E_Commerce.Service
 {
-    public class CategoryService
+    public class CategoryService : ICategoryService
     {
         private ICategoryRepository CategoryRepository;
 
@@ -11,7 +11,7 @@ namespace E_Commerce.Service
         {
             this.CategoryRepository = CategoryRepository;
         }
-        public async Task AddNewCategoryAsync (CreateCategoryVM model)
+        public async Task AddAsync (CreateCategoryVM model)
         {
             var Category = new Category();
             Category.CategoryId = Guid.NewGuid().ToString();
@@ -24,26 +24,26 @@ namespace E_Commerce.Service
             await CategoryRepository.AddAsync(Category);
         }
 
-        public async Task<bool> IsCategoryExistAsync (string name)
+        public async Task<bool> IsCategoryExistForAddAsync (string name)
         {
             return await CategoryRepository.IsCategoryExistForAddAsync(name);
         }
 
-        public async Task<List<Category>> GetAllCategoryAsync ()
+        public async Task<List<Category>> GetAllAsync ()
         {
             return await CategoryRepository.GetAllAsync();
         }
-        public async Task<Category> getCategoryById (string Id)
+        public async Task<Category> GetByIdAsync (string Id)
         {
             return await CategoryRepository.GetByIdAsync(Id);
         }
 
-        public async Task DeleteCategoryByIdAsync (string Id)
+        public async Task DeleteAsync (string Id)
         {
              await CategoryRepository.DeleteAsync(Id);
         }
 
-        public async Task UpdateCategory (UpdateCategoryVM model)
+        public async Task UpdateAsync (UpdateCategoryVM model)
         {
             var category = await CategoryRepository.GetByIdAsync(model.Id);
             category.Name = model.Name;

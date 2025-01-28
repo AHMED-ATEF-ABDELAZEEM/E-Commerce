@@ -6,9 +6,9 @@ namespace E_Commerce.Controllers
 {
     public class CategoryController : Controller
     {
-        public CategoryService CategoryService;
+        public ICategoryService CategoryService;
 
-        public CategoryController(CategoryService CategoryService)
+        public CategoryController(ICategoryService CategoryService)
         {
             this.CategoryService = CategoryService;
         }
@@ -22,13 +22,13 @@ namespace E_Commerce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddNewCategory (CreateCategoryVM model)
         {
-            if(await CategoryService.IsCategoryExistAsync(model.Name))
+            if(await CategoryService.IsCategoryExistForAddAsync(model.Name))
             {
                 ModelState.AddModelError("model.Name", "This Category Is Already Exist");
             }
             if (ModelState.IsValid)
             {
-                await CategoryService.AddNewCategoryAsync (model);
+                await CategoryService.AddAsync (model);
                 return RedirectToAction("getAllCategory");
             }
             return PartialView();
@@ -38,28 +38,28 @@ namespace E_Commerce.Controllers
         [HttpGet]
         public async Task<IActionResult> getAllCategory ()
         {
-            var categories = await CategoryService.GetAllCategoryAsync();
+            var categories = await CategoryService.GetAllAsync();
             return PartialView(categories);
         }
 
         [HttpGet]
         public async Task<IActionResult> getCategoryById (string Id)
         {
-            var category = await CategoryService.getCategoryById(Id);
+            var category = await CategoryService.GetByIdAsync(Id);
             return View(category);
         }
 
         [HttpGet]
         public async Task<IActionResult> DeleteCategory (string Id)
         {
-            var category = await CategoryService.getCategoryById(Id);
+            var category = await CategoryService.GetByIdAsync(Id);
             return PartialView(category);
         }
 
         [HttpPost]
         public async Task<IActionResult> ConfirmDelete (string Id)
         {
-            await CategoryService.DeleteCategoryByIdAsync(Id);
+            await CategoryService.DeleteAsync(Id);
             return RedirectToAction("getAllCategory");
         }
 
@@ -80,7 +80,7 @@ namespace E_Commerce.Controllers
             }
             if (ModelState.IsValid)
             {
-               await CategoryService.UpdateCategory(model);
+               await CategoryService.UpdateAsync(model);
                return RedirectToAction("getAllCategory");
             }
             return PartialView(model);
