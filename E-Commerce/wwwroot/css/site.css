@@ -10,6 +10,8 @@ html, body {
     height: 100%; /* Ensures the body fills the viewport height */
     display: flex; /* Makes the body a flex container */
     flex-direction: column; /* Stacks children vertically */
+    /*scrollbar-gutter: stable;*/
+    overflow-y: scroll;
 }
 
 .Header {
@@ -34,12 +36,12 @@ html, body {
 .Nav {
     display: flex;
     align-items: center;
-    width: 65%;
+    width: 75%;
     margin-left: 20px;
 }
 
-    .Nav li {
-        list-style: none;
+    .Nav a {
+        text-decoration:none;
         font-weight: bold;
         font-size: 18px;
         padding: 10px 15px;
@@ -49,10 +51,9 @@ html, body {
         cursor: pointer;
     }
 
-        .Nav li:hover {
-            /*background-color:white;*/
+        .Nav a:hover {
             transform: scale(1.2);
-            color: white;
+            color: black;
         }
 
 

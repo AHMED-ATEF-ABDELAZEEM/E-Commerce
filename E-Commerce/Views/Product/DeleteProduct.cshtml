@@ -1,0 +1,73 @@
+﻿
+@model Product;
+
+<style>
+    .ConfirmDelete {
+        background-color: darkgray;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+        .ConfirmDelete h2 {
+            margin: 0.8rem 0;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+            .ConfirmDelete h2:first-child {
+                color: #e11d48;
+                font-size: 1.75rem;
+            }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 50px 0px 50px;
+    }
+
+        .buttons .btn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 25px;
+            border: none;
+            outline: none;
+            background-color: rgba(140, 51, 255, 1);
+            margin: 0 10px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            transition: .5s;
+        }
+
+            .buttons .btn:hover {
+                cursor: pointer;
+                opacity: .9;
+                transform: scale(1.1);
+            }
+
+
+</style>
+<div id="container">
+
+    <div class="ConfirmDelete">
+        <h2>Are You Sure You Want To Delete ?</h2>
+        <h2>@Model.Name</h2>
+        <h2>@Model.Description</h2>
+        <div class="buttons">
+            <a class="btn" asp-action="getProductsAtPadge" asp-route-padgeNumber="@ViewBag.padgeNumber" asp-controller="Product">Back</a>
+            <a class="btn" asp-action="ConfirmDelete" asp-route-id="@Model.Id" asp-route-padgeNumber="@ViewBag.padgeNumber" asp-controller="Product">Delete</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

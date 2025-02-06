@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\E-Commerce.bundle.scp.css"
     },
     {
+      "Id": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\css\\AddNewCategory.css",
+      "PackagePath": "staticwebassets\\css\\AddNewCategory.css"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\css\\getAllCategory.css",
+      "PackagePath": "staticwebassets\\css\\getAllCategory.css"
+    },
+    {
       "Id": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

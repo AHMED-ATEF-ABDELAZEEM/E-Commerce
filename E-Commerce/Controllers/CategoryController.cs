@@ -15,23 +15,24 @@ namespace E_Commerce.Controllers
         [HttpGet]
         public IActionResult AddNewCategory ()
         {
-            return PartialView();
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddNewCategory (CreateCategoryVM model)
         {
-            if(await CategoryService.IsCategoryExistForAddAsync(model.Name))
+            bool IsExist = await CategoryService.IsCategoryExistForAddAsync(model.Name);
+            if (IsExist)
             {
-                ModelState.AddModelError("model.Name", "This Category Is Already Exist");
+                ModelState.AddModelError("Name", "This Category Is Already Exist");
             }
             if (ModelState.IsValid)
             {
                 await CategoryService.AddAsync (model);
-                return RedirectToAction("getAllCategory");
+                return RedirectToAction("getAllCategory",new {FullView=true});
             }
-            return PartialView();
+            return View(model);
         }
 
 
@@ -39,7 +40,7 @@ namespace E_Commerce.Controllers
         public async Task<IActionResult> getAllCategory ()
         {
             var categories = await CategoryService.GetAllAsync();
-            return PartialView(categories);
+             return View(categories);          
         }
 
         [HttpGet]
@@ -53,10 +54,10 @@ namespace E_Commerce.Controllers
         public async Task<IActionResult> DeleteCategory (string Id)
         {
             var category = await CategoryService.GetByIdAsync(Id);
-            return PartialView(category);
+            return View(category);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> ConfirmDelete (string Id)
         {
             await CategoryService.DeleteAsync(Id);
@@ -67,7 +68,7 @@ namespace E_Commerce.Controllers
         public async Task<IActionResult> UpdateCategory(string Id)
         {
             var model = await CategoryService.getUpdatedViewModel(Id);
-            return PartialView(model);
+            return View(model);
         }
 
         [HttpPost]
@@ -83,7 +84,7 @@ namespace E_Commerce.Controllers
                await CategoryService.UpdateAsync(model);
                return RedirectToAction("getAllCategory");
             }
-            return PartialView(model);
+            return View(model);
         }
     }
 }

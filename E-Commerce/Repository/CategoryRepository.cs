@@ -25,8 +25,12 @@ namespace E_Commerce.Repository
         public async Task DeleteAsync(string Id)
         {
             var Category = await GetByIdAsync(Id);
-            context.Categories.Remove(Category);
-            await context.SaveChangesAsync();
+            if (Category != null)
+            {
+                context.Categories.Remove(Category);
+                await context.SaveChangesAsync();
+            }
+
         }
 
         public async Task<List<Category>> GetAllAsync()

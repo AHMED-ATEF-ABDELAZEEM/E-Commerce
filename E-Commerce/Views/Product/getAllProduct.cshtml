@@ -1,0 +1,111 @@
+﻿@using E_Commerce.ViewModel;
+@model List<ShowProductVM>;
+
+<style>
+    table {
+        width: 100%;
+        text-align: center;
+        border: none;
+        outline: none;
+        border-collapse: collapse;
+    }
+
+    thead th {
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 10px;
+        padding: 15px 0;
+    }
+
+    table td {
+        margin-top: 10px;
+        padding: 15px 0;
+        font-weight: 600;
+    }
+
+    .descriptionHeader{
+        width: 25%;
+    }
+    .description {
+        width: 25%;
+        font-size:14px;
+    }
+
+    tbody tr:hover {
+        background-color: #e6f7ff;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: rgba(140, 51, 255, 1);
+        padding: 5px 15px;
+        border-radius: 5px;
+        color: white;
+        transition: .5s;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            cursor: pointer;
+            opacity: .8;
+            transform: scale(1.2);
+        }
+
+    #add {
+        display: block;
+        width: 150px;
+        text-decoration: none;
+        background-color: rgba(140, 51, 255, 1);
+        padding: 7px 15px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        color: white;
+        transition: .8s;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 30px 0px 20px 40px;
+    }
+
+        #add:hover {
+            cursor: pointer;
+            opacity: .8;
+            transform: scale(1.1);
+        }
+
+</style>
+
+
+<div id="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th class="descriptionHeader">Description</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Information</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td class="description">@product.Description</td>
+                <td>@product.Amount</td>
+                <td>@product.Price</td>
+                <td>@product.Category</td>
+                <td><a class="btn" asp-action="getProductInformation" asp-route-id="@product.Id">Information</a></td>
+                <td><a class="btn" asp-action="UpdateProduct" asp-route-id="@product.Id">Update</a></td>
+                <td><a class="btn" asp-action="DeleteProduct" asp-route-id="@product.Id">Delete</a></td>
+            </tr>
+        }
+    </table>
+    <a id="add" asp-action="AddNewProduct" asp-controller="Product">Add New Product</a>
+</div>
+

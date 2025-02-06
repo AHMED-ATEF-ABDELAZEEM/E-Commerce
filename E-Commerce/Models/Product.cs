@@ -9,11 +9,12 @@ namespace E_Commerce.Models
         public string Description { get; set; }
         public int Amount { get; set; }
         public int Price { get; set; }
-        public string CreatedAt { get; set; }
-        public string UpdatedAt { get; set; }
+        public string ImagePath { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         [ForeignKey("Product_ref")]
-        public int CategoryId { get; set; }
+        public string CategoryId { get; set; }
         public virtual Category Category_ref { get; set; }
     }
 }

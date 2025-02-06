@@ -18,6 +18,11 @@ namespace E_Commerce.Repository
             await context.SaveChangesAsync();
         }
 
+        public int CountOfProducts()
+        {
+            return context.Products.Count();
+        }
+
         public async Task DeleteAsync(string Id)
         {
             var product = await GetByIdAsync(Id);
@@ -27,12 +32,22 @@ namespace E_Commerce.Repository
 
         public async Task<List<Product>> GetAllAsync()
         {
-            return await context.Products.ToListAsync();
+            return await context.Products.Include(x => x.Category_ref).ToListAsync();
         }
 
         public async Task<Product> GetByIdAsync(string Id)
         {
             return await context.Products.FirstOrDefaultAsync(x => x.Id == Id);
+        }
+
+        public async Task<List<Product>> getProductAtPadge(int padgeNumber, int padgeSize)
+        {
+                 return await context.Products
+                .Include(x => x.Category_ref)
+                .OrderBy(x => x.CreatedAt)
+                .Skip((padgeNumber - 1) * padgeSize)
+                .Take(padgeSize)
+                .ToListAsync();
         }
 
         public async Task UpdateAsync(Product model)

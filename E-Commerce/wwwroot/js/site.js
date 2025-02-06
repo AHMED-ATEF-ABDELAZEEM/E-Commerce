@@ -7,7 +7,7 @@ function ChangeColor(element) {
 }
 
 function ChangeColorForAllElement() {
-    let AllElement = document.querySelectorAll(".Nav li");
+    let AllElement = document.querySelectorAll(".Nav a");
     AllElement.forEach(function (element) {
         element.style.color = "white";
     })
