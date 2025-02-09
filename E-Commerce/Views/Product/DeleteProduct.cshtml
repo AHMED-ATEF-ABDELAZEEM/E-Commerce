@@ -58,8 +58,17 @@
         <h2>@Model.Name</h2>
         <h2>@Model.Description</h2>
         <div class="buttons">
-            <a class="btn" asp-action="getProductsAtPadge" asp-route-padgeNumber="@ViewBag.padgeNumber" asp-controller="Product">Back</a>
-            <a class="btn" asp-action="ConfirmDelete" asp-route-id="@Model.Id" asp-route-padgeNumber="@ViewBag.padgeNumber" asp-controller="Product">Delete</a>
+            @if(ViewBag.Category == "All")
+            {
+                <a class="btn" asp-action="getProductsAtPadge" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
+                <a class="btn" asp-action="ConfirmDelete" asp-route-id="@Model.Id" asp-route-padgeNumber="@ViewBag.padgeNumber">Delete</a>
+            }
+            else
+            {
+                <a class="btn" asp-action="getProductAtCategory" asp-route-Category="@ViewBag.Category" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
+                <a class="btn" asp-action="ConfirmDelete" asp-route-id="@Model.Id" asp-route-padgeNumber="@ViewBag.padgeNumber" asp-route-Category="@ViewBag.Category">Delete</a>
+
+            }
         </div>
     </div>
 </div>

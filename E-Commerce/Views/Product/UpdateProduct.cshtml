@@ -1,9 +1,5 @@
-﻿@model E_Commerce.ViewModel.CreateProductVM
-
-
-@{
-    SelectList CategoryDropdown = new (Model.CategoryDropdownList, "CategoryId", "Name" );
-}
+﻿@using E_Commerce.ViewModel
+@model UpdateProductVM
 
 
 <style>
@@ -46,7 +42,8 @@
     .form-group {
         margin: 10px 0;
     }
-    .form-group select{
+
+        .form-group select {
             background-color: rgba(246, 245, 245, 1);
             border: none;
             outline: none;
@@ -56,8 +53,9 @@
             margin: 10px auto;
             width: 93%;
             font-size: 20px;
-    }
-    textarea{
+        }
+
+    textarea {
         background-color: rgba(246, 245, 245, 1);
         border: none;
         outline: none;
@@ -66,7 +64,7 @@
         transition: 1s;
         margin: 10px auto;
         width: 90%;
-        height:100px;
+        height: 100px;
         font-size: 14px;
     }
 
@@ -94,31 +92,23 @@
 
 <div id="container">
     <div class="form">
-        <h2>Add New Product</h2>
-        <form  asp-action="AddNewProduct" enctype="multipart/form-data">
+        <h2>Update Product</h2>
+        <form asp-action="UpdateProduct" asp-route-PadgeNumber="@ViewBag.PadgeNumber" asp-route-Category="@ViewBag.Category" enctype="multipart/form-data">
             <div asp-validation-summary="All" class="text-danger"></div>
-           
+
 
             <div class="form-group">
                 <label asp-for="Name"></label>
                 <input asp-for="Name" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-@*             <div class="form-group">
-                <label asp-for="Description"></label>
-                <input asp-for="Description" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div> *@
+
             <div class="form-group">
                 <label asp-for="Description"></label>
                 <textarea asp-for="Description"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Amount" class="control-label"></label>
-                <input asp-for="Amount" class="form-control" />
-                <span asp-validation-for="Amount" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
                 <input asp-for="Price" class="form-control" />
@@ -129,14 +119,17 @@
                 <input asp-for="Image" type="file" enctype="multipart/form-data" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label">Choose Category</label>
-                <select asp-for="CategoryId" asp-items="CategoryDropdown"></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
+
             <div class="buttons">
-                <a class="btn" asp-action="getProductsAtPadge" asp-route-PadgeNumber="1">Back</a>
-                <input class="btn" id="submitbutton" type="submit" value="Add" />
+                @if(ViewBag.Category == "All")
+                {
+                    <a class="btn" asp-action="getProductsAtPadge" asp-route-PadgeNumber="@ViewBag.PadgeNumber">Back</a>
+                }
+                else
+                {
+                    <a class="btn" asp-action="getProductAtCategory" asp-route-Category="@ViewBag.Category" asp-route-PadgeNumber="@ViewBag.PadgeNumber">Back</a>
+                }
+                <input class="btn" id="submitbutton" type="submit" value="Update" />
             </div>
         </form>
     </div>
@@ -149,3 +142,10 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+
+
+
+
+
+

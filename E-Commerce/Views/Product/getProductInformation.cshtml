@@ -94,7 +94,14 @@
                 Created At: @Model.CreatedAt <br>
                 Updated At: @Model.UpdatedAt
             </div>
-            <a id="back" asp-action="getProductsAtPadge" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
+            @if(ViewBag.Category == "All")
+            {
+                <a id="back" asp-action="getProductsAtPadge" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
+            }
+            else
+            {
+                <a id="back" asp-action="getProductAtCategory" asp-route-Category="@ViewBag.Category" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
+            }
         </div>
     </div>
 </div>

@@ -7,20 +7,16 @@
       "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\views\\product\\getproductsatpadge.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\views\\product\\getproductsatpadge.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|f:\\programming\\back end\\project\\e - commerce\\e-commerce\\e-commerce\\views\\product\\getproductinformation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B46E8732-731E-4DA5-8FF5-9312CBA5F0CD}|E-Commerce\\E-Commerce.csproj|solutionrelative:e-commerce\\views\\product\\getproductinformation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,8 +26,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "getProductsAtPadge.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Views\\Product\\getProductsAtPadge.cshtml",
+              "RelativeDocumentMoniker": "E-Commerce\\Views\\Product\\getProductsAtPadge.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Views\\Product\\getProductsAtPadge.cshtml",
+              "RelativeToolTip": "E-Commerce\\Views\\Product\\getProductsAtPadge.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAMIAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-09T14:38:28.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "getProductInformation.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Views\\Product\\getProductInformation.cshtml",
+              "RelativeDocumentMoniker": "E-Commerce\\Views\\Product\\getProductInformation.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Views\\Product\\getProductInformation.cshtml",
+              "RelativeToolTip": "E-Commerce\\Views\\Product\\getProductInformation.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-09T14:34:18.676Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -40,61 +62,23 @@
               "RelativeDocumentMoniker": "E-Commerce\\Controllers\\ProductController.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Controllers\\ProductController.cs",
               "RelativeToolTip": "E-Commerce\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAowDIAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-01T21:22:29.685Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Service\\ProductService.cs",
-              "RelativeDocumentMoniker": "E-Commerce\\Service\\ProductService.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Service\\ProductService.cs",
-              "RelativeToolTip": "E-Commerce\\Service\\ProductService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJYAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-02T10:56:35.401Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ProductRepository.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Repository\\ProductRepository.cs",
-              "RelativeDocumentMoniker": "E-Commerce\\Repository\\ProductRepository.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Repository\\ProductRepository.cs",
-              "RelativeToolTip": "E-Commerce\\Repository\\ProductRepository.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAcwC4AAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T11:01:26.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Product.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "E-Commerce\\Models\\Product.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Models\\Product.cs",
-              "RelativeToolTip": "E-Commerce\\Models\\Product.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAgwA0AAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T11:00:51.022Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Program.cs",
               "RelativeDocumentMoniker": "E-Commerce\\Program.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\Program.cs",
               "RelativeToolTip": "E-Commerce\\Program.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAYwBkAAAAMAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAYwB8AAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T07:04:40.505Z"
+              "WhenOpened": "2025-01-22T07:04:40.505Z",
+              "EditorCaption": ""
             }
           ]
         }

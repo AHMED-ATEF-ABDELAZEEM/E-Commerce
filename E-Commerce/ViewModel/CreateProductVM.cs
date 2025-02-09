@@ -4,9 +4,17 @@ namespace E_Commerce.ViewModel
 {
     public class CreateProductVM
     {
+        [Required]
+        [MinLength(3)]
+        [MaxLength(20)]
         public string Name { get; set; }
+        [Required]
+        [MinLength(10)]
+        [MaxLength(150)]
         public string Description { get; set; }
+        [Range(5,500)]
         public int Amount { get; set; }
+        [Range(1,100000)]
         public int Price { get; set; }
 
         [Required]

@@ -66,6 +66,8 @@ namespace E_Commerce.Service
             }
         }
 
+
+
         private async Task UpdateCategoryForDeleteProduct(string ProductId)
         {
             var product = await ProductRepository.GetByIdAsync(ProductId);
@@ -74,11 +76,14 @@ namespace E_Commerce.Service
             category.Amount -= product.Amount;
             await CategoryRepository.UpdateAsync(category);
         }
+
+
         public async Task AddAsync(CreateProductVM productVM)
         {
             await AddProductAsync(productVM);
             await UpdateCategoryAfterAddNewProduct(productVM.CategoryId, productVM.Amount);
         }
+
 
         public async Task DeleteAsync(string Id)
         {
@@ -87,36 +92,49 @@ namespace E_Commerce.Service
             await ProductRepository.DeleteAsync(Id);
         }
 
+
+
         public async Task<List<Product>> GetAllAsync()
         {
             return await ProductRepository.GetAllAsync();
         }
+
+
 
         public async Task<Product> GetByIdAsync(string id)
         {
             return await ProductRepository.GetByIdAsync(id);
         }
 
+
+
         public async Task<List<CategoryDropdownVM>> GetCategoryDropdownVM()
         {
             var AllCategory = await CategoryRepository.GetAllAsync();
-            return AllCategory.Select(c => new CategoryDropdownVM
+            var CategoryDropdown =  AllCategory.Select(c => new CategoryDropdownVM
             {
                 CategoryId = c.CategoryId,
                 Name = c.Name,
             }).ToList();
+            return CategoryDropdown;
         }
+
+
+
 
         public async Task UpdateAsync(UpdateProductVM model)
         {
             var product = new Product();
             product.Name = model.Name;
             product.Description = model.Description;
-            product.Amount = model.Amount;
             product.Price = model.Price;
             product.UpdatedAt = DateTime.Now;
+            if(model.Image != null) product.ImagePath = GetImagePath(model.Image);
             await ProductRepository.UpdateAsync(product);
         }
+
+
+
 
         public async Task<List<ShowProductVM>> GetAllProductVMAsync()
         {
@@ -133,9 +151,9 @@ namespace E_Commerce.Service
         }
 
 
-        public async Task<ShowProductAtPadgeVM> getProductAtPadgeAsync (int padgeNumber,int padgeSize)
+        public async Task<ShowProductAtPadgeVM> getProductsAtPadgeAsync (int padgeNumber,int padgeSize)
         {
-            var CountOfAllProduct =  ProductRepository.CountOfProducts();
+            var CountOfAllProduct =  ProductRepository.CountOfAllProducts();
 
             var model = new ShowProductAtPadgeVM();
             model.CurrentPadge = padgeNumber;
@@ -157,6 +175,57 @@ namespace E_Commerce.Service
                 Price = x.Price,
                 Category = x.Category_ref.Name,
             }).ToList();
+
+            model.CategoryDropdownList = await GetCategoryDropdownVM();
+            model.CategoryDropdownList.Insert(0, new CategoryDropdownVM { CategoryId = "All", Name = "All" });
+
+            return model;
+        }
+
+
+
+        public async Task<ShowProductAtPadgeVM> getProductsAtCategoryAsync(string Category, int padgeNumber, int padgeSize)
+        {
+           int CountOfProduct = ProductRepository.CountOfProductAtCategory(Category);
+            var model = new ShowProductAtPadgeVM();
+            model.CurrentPadge = padgeNumber;
+            model.PadgeSize = padgeSize;
+            model.CountOfPadge = (int)Math.Ceiling((double)CountOfProduct / padgeSize);
+            if (padgeNumber > model.CountOfPadge)
+            {
+                model.CurrentPadge--;
+                if (model.CurrentPadge == 0) model.CurrentPadge = 1;
+            }
+            var products = await ProductRepository.getProductAtCategoryAsync(Category, model.CurrentPadge, padgeSize);
+
+            model.Products = products.Select(x => new ShowProductVM
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                Amount = x.Amount,
+                Price = x.Price,
+                Category = x.Category_ref.Name,
+            }).ToList();
+
+            model.CategoryDropdownList = await GetCategoryDropdownVM();
+            model.CategoryDropdownList.Insert(0, new CategoryDropdownVM { CategoryId = "All", Name = "All" });
+
+            return model;
+        }
+
+
+
+        public async Task<UpdateProductVM> getModelForUpdateProductAsync(string Id)
+        { 
+            var product = await ProductRepository.GetByIdAsync(Id);
+            var model = new UpdateProductVM
+            {
+                Name = product.Name,
+                Description = product.Description,
+                Price= product.Price,
+
+            };
             return model;
         }
     }

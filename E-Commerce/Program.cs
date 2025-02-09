@@ -29,7 +29,7 @@ namespace E_Commerce
             {
                 options.MultipartBodyLengthLimit = 10485760; // 10MB
             });
-
+            builder.Services.AddSession();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

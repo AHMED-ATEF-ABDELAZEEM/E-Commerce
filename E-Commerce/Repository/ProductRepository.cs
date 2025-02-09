@@ -18,9 +18,14 @@ namespace E_Commerce.Repository
             await context.SaveChangesAsync();
         }
 
-        public int CountOfProducts()
+        public int CountOfAllProducts()
         {
             return context.Products.Count();
+        }
+
+        public int CountOfProductAtCategory(string Category)
+        {
+           return context.Products.Where(x => x.Category_ref.Name == Category).Count();
         }
 
         public async Task DeleteAsync(string Id)
@@ -38,6 +43,17 @@ namespace E_Commerce.Repository
         public async Task<Product> GetByIdAsync(string Id)
         {
             return await context.Products.FirstOrDefaultAsync(x => x.Id == Id);
+        }
+
+        public async Task<List<Product>> getProductAtCategoryAsync(string Category, int padgeNumber, int padgeSize)
+        {
+                 return await context.Products
+                .Include(x => x.Category_ref)
+                .Where(x => x.Category_ref.Name ==  Category)
+                .OrderBy(x => x.CreatedAt)
+                .Skip((padgeNumber - 1) * padgeSize)
+                .Take(padgeSize)
+                .ToListAsync();
         }
 
         public async Task<List<Product>> getProductAtPadge(int padgeNumber, int padgeSize)

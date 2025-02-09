@@ -1,44 +1,42 @@
 ﻿@using E_Commerce.ViewModel
 @model ShowProductAtPadgeVM
 
-@{
-    SelectList CategoryDropdown = new(Model.CategoryDropdownList, "Name", "Name");
-}
+
 
 <style>
-    table {
-        width: 100%;
-        text-align: center;
-        border: none;
-        outline: none;
-        border-collapse: collapse;
-    }
+        table {
+            width: 100%;
+            text-align: center;
+            border: none;
+            outline: none;
+            border-collapse: collapse;
+        }
 
-    thead th {
-        font-weight: bold;
-        font-size: 20px;
-        margin-top: 10px;
-        padding: 15px 0;
-    }
+        thead th {
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 10px;
+            padding: 15px 0;
+        }
 
-    table td {
-        margin-top: 10px;
-        padding: 15px 0;
-        font-weight: 600;
-    }
+        table td {
+            margin-top: 10px;
+            padding: 15px 0;
+            font-weight: 600;
+        }
 
-    .descriptionHeader {
-        width: 25%;
-    }
+        .descriptionHeader {
+            width: 25%;
+        }
 
-    .description {
-        width: 25%;
-        font-size: 14px;
-    }
+        .description {
+            width: 25%;
+            font-size: 14px;
+        }
 
-    tbody tr:hover {
-        background-color: #e6f7ff;
-    }
+        tbody tr:hover {
+            background-color: #e6f7ff;
+        }
 
     .btn {
         display: inline-block;
@@ -78,33 +76,36 @@
             opacity: .8;
             transform: scale(1.1);
         }
-    h2{
-        text-align:center;
-        margin:10px 0;
+
+    h2 {
+        text-align: center;
+        margin: 10px 0;
     }
+
     .parent {
-        margin:20px auto;
-        text-align:center;
-    }
-    .parent a{
-        text-decoration:none;
-        padding:8px 16px;
-        font-weight:bold;
-        background-color:burlywood;
-        color:white;
-        border-radius:8px;
-        margin:0px 10px;
+        margin: 20px auto;
+        text-align: center;
     }
 
-    .active{
-        color:black;
-        opacity:.5;
-        cursor:not-allowed;
+        .parent a {
+            text-decoration: none;
+            padding: 8px 16px;
+            font-weight: bold;
+            background-color: burlywood;
+            color: white;
+            border-radius: 8px;
+            margin: 0px 10px;
+        }
+
+    .active {
+        color: black;
+        opacity: .5;
+        cursor: not-allowed;
     }
 
-    .Operation{
-        display:flex;
-        justify-content:space-between;
+    .Operation {
+        display: flex;
+        justify-content: space-between;
     }
 
     .filter-container {
@@ -114,7 +115,7 @@
         padding: 10px;
         background-color: #f8f9fa; /* Light background */
         border-radius: 8px;
-        margin-right:20px;
+        margin-right: 20px;
     }
 
     .filter-label {
@@ -140,11 +141,6 @@
         .filter-button:hover {
             background-color: #0056b3;
         }
-
-    .Message {
-        text-align: center;
-        margin: 20px 0;
-    }
 </style>
 
 
@@ -152,12 +148,24 @@
 
     <div class="Operation">
         <a id="add" asp-action="AddNewProduct" asp-controller="Product">Add New Product</a>
-        <div class="filter-container">
-            <label for="categorySelect" class="filter-label">Category</label>
-            <select id="categorySelect" name="category" class="form-select filter-dropdown" asp-items="CategoryDropdown"></select>
-            <a href="#" id="filterLink" class="btn btn-primary filter-button">Filter</a>
-        </div>
 
+        <div class="filter-container">
+        <label for="categorySelect" class="filter-label">Category</label>
+        <select id="categorySelect" name="category" class="form-select filter-dropdown">
+                @foreach (var category in Model.CategoryDropdownList)
+                {
+                    if(Model.Category == category.Name)
+                    {
+                        <option value="@category.Name" selected>@category.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@category.Name">@category.Name</option>
+                    }
+                }
+            </select>
+        <a href="#" id="filterLink" class="btn btn-primary filter-button">Filter</a>
+        </div>
         <script>
             document.getElementById("filterLink").addEventListener("click", function () {
                 var Category = document.getElementById("categorySelect").value;
@@ -173,7 +181,7 @@
                 <tr>
                     <th></th>
                     <th>Product</th>
-                    @* <th class="descriptionHeader">Description</th> *@
+@*                     <th class="descriptionHeader">Description</th> *@
                     <th>Amount</th>
                     <th>Price</th>
                     <th>Category</th>
@@ -190,13 +198,13 @@
                 <tr>
                     <td>@start</td>
                     <td>@product.Name</td>
-                    @* <td class="description">@product.Description</td> *@
+@*                     <td class="description">@product.Description</td> *@
                     <td>@product.Amount</td>
                     <td>@product.Price</td>
                     <td>@product.Category</td>
-                    <td><a class="btn" asp-action="getProductInformation" asp-route-id="@product.Id" asp-route-PadgeNumber="@Model.CurrentPadge">Information</a></td>
-                    <td><a class="btn" asp-action="UpdateProduct" asp-route-id="@product.Id" asp-route-PadgeNumber="@Model.CurrentPadge">Update</a></td>
-                    <td><a class="btn" asp-action="DeleteProduct" asp-route-id="@product.Id" asp-route-PadgeNumber="@Model.CurrentPadge">Delete</a></td>
+                    <td><a class="btn" asp-action="getProductInformation" asp-route-id="@product.Id" asp-route-PadgeNumber="@Model.CurrentPadge" asp-route-Category="@Model.Category">Information</a></td>
+                    <td><a class="btn" asp-action="UpdateProduct" asp-route-id="@product.Id" asp-route-PadgeNumber="@Model.CurrentPadge" asp-route-Category="@Model.Category">Update</a></td>
+                    <td><a class="btn" asp-action="DeleteProduct" asp-route-id="@product.Id" asp-route-PadgeNumber="@Model.CurrentPadge" asp-route-Category="@Model.Category">Delete</a></td>
                 </tr>
                 start++;
             }
@@ -210,28 +218,21 @@
 
     <h2>@Model.CurrentPadge</h2>
     <div class="parent">
-        @if(Model.CountOfPadge > 1)
+        @if (Model.CountOfPadge > 1)
         {
-            for(int i = 1; i <= Model.CountOfPadge; i++)
+            for (int i = 1; i <= Model.CountOfPadge; i++)
             {
-                if(Model.CurrentPadge == i)
+                if (Model.CurrentPadge == i)
                 {
                     <a class="active">@i</a>
                 }
                 else
                 {
-                    <a asp-action="getProductsAtPadge" asp-route-padgeNumber="@i">@i</a>
+                    <a asp-action="getProductAtCategory" asp-route-Category="@Model.Category" asp-route-padgeNumber="@i">@i</a>
                 }
             }
         }
     </div>
 </div>
-
-
-
-
-
-
-
 
 
