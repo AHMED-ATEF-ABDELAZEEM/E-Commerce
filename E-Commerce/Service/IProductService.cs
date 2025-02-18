@@ -8,7 +8,10 @@ namespace E_Commerce.Service
         Task<List<CategoryDropdownVM>> GetCategoryDropdownVM();
         Task<List<ShowProductVM>> GetAllProductVMAsync();
         Task<ShowProductAtPadgeVM> getProductsAtPadgeAsync(int padgeNumber,int padgeSize);
-        Task<ShowProductAtPadgeVM> getProductsAtCategoryAsync(string CategoryId, int padgeNumber, int padgeSize);
+        Task<ShowProductAtPadgeVM> getProductsAtCategoryAsync(string Category, int padgeNumber, int padgeSize);
         Task<UpdateProductVM> getModelForUpdateProductAsync(string Id);
+        Task<bool> IsProductExistForAddAsync(string ProductName);
+        Task<bool> IsProductExistForUpdateAsync(string ProductId,string ProductName);
+
     }
 }

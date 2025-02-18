@@ -1008,12 +1008,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\1133b684-613e-4d0b-affb-c563991ac1b2_iphone11.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\14756886-9642-4d27-b5a8-21bef6fe25b2_keyboard3.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/1133b684-613e-4d0b-affb-c563991ac1b2_iphone11.jpeg</RelativePath>
+      <RelativePath>ProductImages/14756886-9642-4d27-b5a8-21bef6fe25b2_keyboard3.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1022,14 +1022,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\1133b684-613e-4d0b-affb-c563991ac1b2_iphone11.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\14756886-9642-4d27-b5a8-21bef6fe25b2_keyboard3.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\3e2e6617-dd89-457d-aeae-06f9dfd8fba1_iphone11.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\44d754e4-b1cc-49d4-88a8-f5faa61d2cf7_Xiaomi.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/3e2e6617-dd89-457d-aeae-06f9dfd8fba1_iphone11.jpeg</RelativePath>
+      <RelativePath>ProductImages/44d754e4-b1cc-49d4-88a8-f5faa61d2cf7_Xiaomi.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1038,14 +1038,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\3e2e6617-dd89-457d-aeae-06f9dfd8fba1_iphone11.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\44d754e4-b1cc-49d4-88a8-f5faa61d2cf7_Xiaomi.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\44367975-2508-45f4-a3c4-8d6488611a0d_Dell-XPS-15.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\4e3c3906-5da1-4b6f-9db5-96f01e3ef9b8_Xiomi14Ultra.webp))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/44367975-2508-45f4-a3c4-8d6488611a0d_Dell-XPS-15.jpeg</RelativePath>
+      <RelativePath>ProductImages/4e3c3906-5da1-4b6f-9db5-96f01e3ef9b8_Xiomi14Ultra.webp</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1054,14 +1054,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\44367975-2508-45f4-a3c4-8d6488611a0d_Dell-XPS-15.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\4e3c3906-5da1-4b6f-9db5-96f01e3ef9b8_Xiomi14Ultra.webp))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\767f9488-2b91-4c12-8781-1bd12103e7cb_iphone11.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\558916b0-84e7-4290-9263-b5ad0a830294_lenove2.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/767f9488-2b91-4c12-8781-1bd12103e7cb_iphone11.jpeg</RelativePath>
+      <RelativePath>ProductImages/558916b0-84e7-4290-9263-b5ad0a830294_lenove2.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1070,14 +1070,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\767f9488-2b91-4c12-8781-1bd12103e7cb_iphone11.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\558916b0-84e7-4290-9263-b5ad0a830294_lenove2.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\7bb5bf78-7041-4d77-bdbc-c066296c2746_iphone11.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\5604c727-9b3d-4f95-846d-13b1ef94e328_keyboard.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/7bb5bf78-7041-4d77-bdbc-c066296c2746_iphone11.jpeg</RelativePath>
+      <RelativePath>ProductImages/5604c727-9b3d-4f95-846d-13b1ef94e328_keyboard.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1086,14 +1086,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\7bb5bf78-7041-4d77-bdbc-c066296c2746_iphone11.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\5604c727-9b3d-4f95-846d-13b1ef94e328_keyboard.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\7bb86c8d-0117-4c3f-a4b6-5774a05895a1_Iphone13pro.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\5f52cf05-1b59-4c0a-99eb-e34162260948_lenovo.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/7bb86c8d-0117-4c3f-a4b6-5774a05895a1_Iphone13pro.jpeg</RelativePath>
+      <RelativePath>ProductImages/5f52cf05-1b59-4c0a-99eb-e34162260948_lenovo.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1102,14 +1102,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\7bb86c8d-0117-4c3f-a4b6-5774a05895a1_Iphone13pro.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\5f52cf05-1b59-4c0a-99eb-e34162260948_lenovo.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\812d102e-145e-41d4-b0ea-ce0bbf0b3b4c_iphone11.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\834cfb50-55af-468e-b439-d15de844aa0d_dell.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/812d102e-145e-41d4-b0ea-ce0bbf0b3b4c_iphone11.jpeg</RelativePath>
+      <RelativePath>ProductImages/834cfb50-55af-468e-b439-d15de844aa0d_dell.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1118,14 +1118,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\812d102e-145e-41d4-b0ea-ce0bbf0b3b4c_iphone11.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\834cfb50-55af-468e-b439-d15de844aa0d_dell.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\842da744-0654-4dba-9d71-2b2cedd7ec66_Iphone13pro.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\8a0ac7fc-c696-4c8e-bfa6-b8ade51786ad_Sumsong.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/842da744-0654-4dba-9d71-2b2cedd7ec66_Iphone13pro.jpeg</RelativePath>
+      <RelativePath>ProductImages/8a0ac7fc-c696-4c8e-bfa6-b8ade51786ad_Sumsong.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1134,14 +1134,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\842da744-0654-4dba-9d71-2b2cedd7ec66_Iphone13pro.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\8a0ac7fc-c696-4c8e-bfa6-b8ade51786ad_Sumsong.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\88b3057f-1e90-44a9-a8ae-622b221b8614_Iphone13pro.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\aa8b9a9a-3a8e-49df-b177-201b082d448a_Dell-XPS-15.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/88b3057f-1e90-44a9-a8ae-622b221b8614_Iphone13pro.jpeg</RelativePath>
+      <RelativePath>ProductImages/aa8b9a9a-3a8e-49df-b177-201b082d448a_Dell-XPS-15.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1150,14 +1150,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\88b3057f-1e90-44a9-a8ae-622b221b8614_Iphone13pro.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\aa8b9a9a-3a8e-49df-b177-201b082d448a_Dell-XPS-15.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\8f65aa3c-4bdd-4715-b613-51a08bd105da_iphone11.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\cfaba768-7e03-4f79-beb0-0b846c200460_sumsongs25.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/8f65aa3c-4bdd-4715-b613-51a08bd105da_iphone11.jpeg</RelativePath>
+      <RelativePath>ProductImages/cfaba768-7e03-4f79-beb0-0b846c200460_sumsongs25.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1166,14 +1166,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\8f65aa3c-4bdd-4715-b613-51a08bd105da_iphone11.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\cfaba768-7e03-4f79-beb0-0b846c200460_sumsongs25.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\b117a29c-f6b5-4794-99fc-7df49265093e_iphone11.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\db906a0c-406d-4da7-b7af-c2bb3f236843_keyboard1.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/b117a29c-f6b5-4794-99fc-7df49265093e_iphone11.jpeg</RelativePath>
+      <RelativePath>ProductImages/db906a0c-406d-4da7-b7af-c2bb3f236843_keyboard1.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1182,14 +1182,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\b117a29c-f6b5-4794-99fc-7df49265093e_iphone11.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\db906a0c-406d-4da7-b7af-c2bb3f236843_keyboard1.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\c6bc1d87-22e4-46aa-bd4b-05aa28e92a56_Iphone13pro.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\f069c059-0587-432d-af53-f8c3b7cf82e9_keyboard2.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/c6bc1d87-22e4-46aa-bd4b-05aa28e92a56_Iphone13pro.jpeg</RelativePath>
+      <RelativePath>ProductImages/f069c059-0587-432d-af53-f8c3b7cf82e9_keyboard2.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1198,14 +1198,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\c6bc1d87-22e4-46aa-bd4b-05aa28e92a56_Iphone13pro.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\f069c059-0587-432d-af53-f8c3b7cf82e9_keyboard2.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\e1c65917-7b0d-4068-9c10-eb1878407b4d_iphone11.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\fa51321c-72b0-4d64-9aad-fbf5667283d3_lenove2.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>E-Commerce</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/e1c65917-7b0d-4068-9c10-eb1878407b4d_iphone11.jpeg</RelativePath>
+      <RelativePath>ProductImages/fa51321c-72b0-4d64-9aad-fbf5667283d3_lenove2.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1214,23 +1214,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\e1c65917-7b0d-4068-9c10-eb1878407b4d_iphone11.jpeg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\e6c245dc-6663-4b41-87dc-ffc7058735cd_iphone11.jpeg))">
-      <SourceType>Package</SourceType>
-      <SourceId>E-Commerce</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/E-Commerce</BasePath>
-      <RelativePath>ProductImages/e6c245dc-6663-4b41-87dc-ffc7058735cd_iphone11.jpeg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\e6c245dc-6663-4b41-87dc-ffc7058735cd_iphone11.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\ProductImages\fa51321c-72b0-4d64-9aad-fbf5667283d3_lenove2.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

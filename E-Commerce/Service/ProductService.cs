@@ -1,6 +1,7 @@
 ﻿using E_Commerce.Models;
 using E_Commerce.Repository;
 using E_Commerce.ViewModel;
+using Microsoft.AspNetCore.Hosting;
 
 namespace E_Commerce.Service
 {
@@ -59,10 +60,12 @@ namespace E_Commerce.Service
         private async Task DeleteProductImage(string ProductId)
         {
             var product = await ProductRepository.GetByIdAsync(ProductId);
-            var ImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", product.ImagePath);
-            if (System.IO.File.Exists(ImagePath))
+            //var ImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", product.ImagePath);
+            var FullImagePath = Path.Combine(webHostEnvironment.WebRootPath, product.ImagePath);
+
+            if (System.IO.File.Exists(FullImagePath))
             {
-                System.IO.File.Delete(ImagePath);
+                System.IO.File.Delete(FullImagePath);
             }
         }
 
@@ -124,7 +127,7 @@ namespace E_Commerce.Service
 
         public async Task UpdateAsync(UpdateProductVM model)
         {
-            var product = new Product();
+            var product = await ProductRepository.GetByIdAsync(model.Id);
             product.Name = model.Name;
             product.Description = model.Description;
             product.Price = model.Price;
@@ -221,12 +224,23 @@ namespace E_Commerce.Service
             var product = await ProductRepository.GetByIdAsync(Id);
             var model = new UpdateProductVM
             {
+                Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
                 Price= product.Price,
 
             };
             return model;
+        }
+
+        public async Task<bool> IsProductExistForAddAsync(string ProductName)
+        {
+            return await ProductRepository.IsProductExistForAddAsync(ProductName);
+        }
+
+        public async Task<bool> IsProductExistForUpdateAsync(string ProductId, string ProductName)
+        {
+            return await ProductRepository.IsProductExitsForUpdateAsync(ProductId, ProductName);
         }
     }
 }

@@ -2,7 +2,9 @@
 
 
 @{
-    SelectList CategoryDropdown = new (Model.CategoryDropdownList, "CategoryId", "Name" );
+    SelectList CategoryDropdown = new (Model.CategoryDropdownList, "CategoryId", "Name" );   
+    string Category = Context.Session.GetString("Category");
+    int? PadgeNumber = Context.Session.GetInt32("PadgeNumber");
 }
 
 
@@ -135,7 +137,7 @@
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             <div class="buttons">
-                <a class="btn" asp-action="getProductsAtPadge" asp-route-PadgeNumber="1">Back</a>
+                <a class="btn" asp-action="getProductsAtPadge" asp-route-PadgeNumber="@PadgeNumber" asp-route-Category="@Category">Back</a>
                 <input class="btn" id="submitbutton" type="submit" value="Add" />
             </div>
         </form>

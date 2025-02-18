@@ -1,6 +1,11 @@
 ﻿
 @model Product;
 
+@{
+    string Category = Context.Session.GetString("Category");
+    int? PadgeNumber = Context.Session.GetInt32("PadgeNumber");
+}
+
 <style>
     .ConfirmDelete {
         background-color: darkgray;
@@ -58,17 +63,8 @@
         <h2>@Model.Name</h2>
         <h2>@Model.Description</h2>
         <div class="buttons">
-            @if(ViewBag.Category == "All")
-            {
-                <a class="btn" asp-action="getProductsAtPadge" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
-                <a class="btn" asp-action="ConfirmDelete" asp-route-id="@Model.Id" asp-route-padgeNumber="@ViewBag.padgeNumber">Delete</a>
-            }
-            else
-            {
-                <a class="btn" asp-action="getProductAtCategory" asp-route-Category="@ViewBag.Category" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
-                <a class="btn" asp-action="ConfirmDelete" asp-route-id="@Model.Id" asp-route-padgeNumber="@ViewBag.padgeNumber" asp-route-Category="@ViewBag.Category">Delete</a>
-
-            }
+            <a class="btn" asp-action="getProductsAtPadge" asp-route-padgeNumber="@PadgeNumber" asp-route-Category="@Category">Back</a>
+            <a class="btn" asp-action="ConfirmDelete" asp-route-id="@Model.Id">Delete</a>
         </div>
     </div>
 </div>

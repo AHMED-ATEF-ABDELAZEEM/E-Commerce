@@ -1,6 +1,11 @@
 ﻿
 @model Product;
 
+@{
+    string Category = Context.Session.GetString("Category");
+    int? PadgeNumber = Context.Session.GetInt32("PadgeNumber");
+}
+
 <style>
 
     .product-card {
@@ -13,13 +18,13 @@
         margin: 20px auto;
         background-color: #fff;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        width: 600px;
+        width: 700px;
     }
 
 
     .product-image {
-        width: 150px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
         object-fit: cover;
         border-radius: 8px;
         margin: auto 0;
@@ -94,14 +99,10 @@
                 Created At: @Model.CreatedAt <br>
                 Updated At: @Model.UpdatedAt
             </div>
-            @if(ViewBag.Category == "All")
-            {
-                <a id="back" asp-action="getProductsAtPadge" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
-            }
-            else
-            {
-                <a id="back" asp-action="getProductAtCategory" asp-route-Category="@ViewBag.Category" asp-route-padgeNumber="@ViewBag.padgeNumber">Back</a>
-            }
+
+            <a id="back" asp-action="getProductsAtPadge" asp-route-padgeNumber="@PadgeNumber" asp-route-Category="@Category">Back</a>
+
+
         </div>
     </div>
 </div>

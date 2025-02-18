@@ -15,15 +15,25 @@
     <div class="Header">
         <h2>E-Commerce</h2>
         <Div class="Nav">
-            <a  onclick="ChangeColor(this)">Home</a>
+@*             <a  onclick="ChangeColor(this,event)">Home</a>
             <a  onclick="ChangeColor(this)">Offer</a>
-            <a  onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Category</a>
-            <a  onclick="ChangeColor(this)" asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-controller="Product">Product</a>
+            <a  onclick="ChangeColor(this,event)" asp-action="getAllCategory" asp-controller="Category">Category</a>
+            <a  onclick="ChangeColor(this,event)" asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a>
             <a  onclick="ChangeColor(this)">history</a>
             <a  onclick="ChangeColor(this)">Wishlist</a>
             <a  onclick="ChangeColor(this)">Cart</a>
             <a  onclick="ChangeColor(this)">Acount</a>
-            <a  onclick="ChangeColor(this)">Logout</a>
+            <a  onclick="ChangeColor(this)">Logout</a> *@
+
+            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Home</a>
+            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Category</a>
+            <a onclick="ChangeColor(this)" asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a>
+            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Offer</a>
+            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">history</a>
+            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Wishlist</a>
+            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Cart</a>
+            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Acount</a>
+            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Logout</a>
         </Div>
     </div>
 

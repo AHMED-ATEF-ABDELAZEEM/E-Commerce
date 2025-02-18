@@ -58,10 +58,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxnZXRBbGxQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Product/getProductAtCategory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxnZXRQcm9kdWN0QXRDYXRlZ29yeS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Product/getProductInformation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxnZXRQcm9kdWN0SW5mb3JtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -72,10 +68,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Product/UpdateProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxVcGRhdGVQcm9kdWN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Product/_ShowProductAtPadgePartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxfU2hvd1Byb2R1Y3RBdFBhZGdlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Shared/Error.cshtml]

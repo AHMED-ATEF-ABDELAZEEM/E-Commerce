@@ -1,6 +1,10 @@
 ﻿@using E_Commerce.ViewModel
 @model UpdateProductVM
 
+@{
+    string Category = Context.Session.GetString("Category");
+    int? PadgeNumber = Context.Session.GetInt32("PadgeNumber");
+}
 
 <style>
     .form {
@@ -93,9 +97,12 @@
 <div id="container">
     <div class="form">
         <h2>Update Product</h2>
-        <form asp-action="UpdateProduct" asp-route-PadgeNumber="@ViewBag.PadgeNumber" asp-route-Category="@ViewBag.Category" enctype="multipart/form-data">
+        <form asp-action="UpdateProduct" enctype="multipart/form-data">
             <div asp-validation-summary="All" class="text-danger"></div>
 
+            <div class="form-group">
+                <input asp-for="Id" hidden />
+            </div>
 
             <div class="form-group">
                 <label asp-for="Name"></label>
@@ -121,14 +128,7 @@
             </div>
 
             <div class="buttons">
-                @if(ViewBag.Category == "All")
-                {
-                    <a class="btn" asp-action="getProductsAtPadge" asp-route-PadgeNumber="@ViewBag.PadgeNumber">Back</a>
-                }
-                else
-                {
-                    <a class="btn" asp-action="getProductAtCategory" asp-route-Category="@ViewBag.Category" asp-route-PadgeNumber="@ViewBag.PadgeNumber">Back</a>
-                }
+                <a class="btn" asp-action="getProductsAtPadge" asp-route-padgeNumber="@PadgeNumber" asp-route-Category="@Category">Back</a>
                 <input class="btn" id="submitbutton" type="submit" value="Update" />
             </div>
         </form>

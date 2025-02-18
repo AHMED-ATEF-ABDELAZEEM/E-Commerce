@@ -33,88 +33,83 @@ namespace E_Commerce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddNewProduct(CreateProductVM NewProduct)
         {
+            if (await ProductService.IsProductExistForAddAsync(NewProduct.Name))
+            {
+                ModelState.AddModelError("Name", "This Product Is Aleady Exits");
+            }
             if (ModelState.IsValid)
             {
                 await ProductService.AddAsync(NewProduct);
-                return RedirectToAction("getProductsAtPadge", new { padgeNumber = 1 });
+                return RedirectToAction("getProductsAtPadge", new { padgeNumber = 1 ,Category = "All"});
             }
             NewProduct.CategoryDropdownList = await ProductService.GetCategoryDropdownVM();
             return View(NewProduct);
         }
 
         [HttpGet]
-        public async Task<IActionResult> DeleteProduct(string Id, int padgeNumber, string Category)
+        public async Task<IActionResult> DeleteProduct(string Id)
         {
             var product = await ProductService.GetByIdAsync(Id);
-            ViewBag.padgeNumber = padgeNumber;
-            if (Category == null) Category = "All";
-            ViewBag.Category = Category;
             return View(product);
         }
         [HttpGet]
-        public async Task<IActionResult> ConfirmDelete(string Id, int padgeNumber, string Category)
+        public async Task<IActionResult> ConfirmDelete(string Id)
         {
             await ProductService.DeleteAsync(Id);
-            if (Category == null)
+            var Category = HttpContext.Session.GetString("Category");
+            var padgeNumber = HttpContext.Session.GetInt32("PadgeNumber");
+            return RedirectToAction("getProductsAtPadge", new { padgeNumber = padgeNumber,Category = Category });
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> getProductInformation(string Id)
+        {
+            var product = await ProductService.GetByIdAsync(Id);
+
+            return View(product);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> getProductsAtPadge(int padgeNumber,string Category)
+        {
+            var model = new ShowProductAtPadgeVM();
+            HttpContext.Session.SetString("Category", Category);
+            HttpContext.Session.SetInt32("PadgeNumber", padgeNumber);
+            if(Category == "All")
             {
-                return RedirectToAction("getProductsAtPadge", new { padgeNumber = padgeNumber });
+                model = await ProductService.getProductsAtPadgeAsync(padgeNumber, 5);
             }
             else
             {
-                return RedirectToAction("getProductAtCategory", new { Category = Category, padgeNumber = padgeNumber });
+                model = await ProductService.getProductsAtCategoryAsync(Category, padgeNumber, 5);
             }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> getProductInformation(string Id, int PadgeNumber, string Category)
-        {
-            var product = await ProductService.GetByIdAsync(Id);
-            ViewBag.padgeNumber = PadgeNumber;
-            if (Category == null) Category = "All";
-            ViewBag.Category = Category;
-            return View(product);
-        }
-
-        public async Task<IActionResult> getProductsAtPadge(int padgeNumber)
-        {
-            var model = await ProductService.getProductsAtPadgeAsync(padgeNumber, 5);
             return View(model);
         }
 
-        public async Task<IActionResult> getProductAtCategory(string Category, int padgeNumber)
-        {
-            if (Category == "All")
-            {
-                return RedirectToAction("getProductsAtPadge", new { padgeNumber = 1 });
-            }
-            if (padgeNumber == 0) padgeNumber = 1;
-            var model = await ProductService.getProductsAtCategoryAsync(Category, padgeNumber, 5);
-            model.Category = Category;
-            return View(model);
-        }
 
         [HttpGet]
-        public async Task<IActionResult> UpdateProduct(string Id, int PadgeNumber, string Category)
+        public async Task<IActionResult> UpdateProduct(string Id)
         {
             var model = await ProductService.getModelForUpdateProductAsync(Id);
-            if (Category == null) Category = "All";
-            ViewBag.PadgeNumber = PadgeNumber;
-            ViewBag.Category = Category;
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateProduct(UpdateProductVM model, int PadgeNumber, string Category)
+        public async Task<IActionResult> UpdateProduct(UpdateProductVM model)
         {
-            await ProductService.UpdateAsync(model);
-            if (Category == "All")
+            if(await ProductService.IsProductExistForUpdateAsync(model.Id,model.Name))
             {
-                return RedirectToAction("getProductsAtPadge", new { padgeNumber = PadgeNumber });
+                ModelState.AddModelError("Name", "This Product Is Aleady Exits");
             }
-            else
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("getProductAtCategory", new { Category = Category, padgeNumber = PadgeNumber });
+                await ProductService.UpdateAsync(model);
+                var Category = HttpContext.Session.GetString("Category");
+                var padgeNumber = HttpContext.Session.GetInt32("PadgeNumber");
+                return RedirectToAction("getProductsAtPadge", new { padgeNumber = padgeNumber, Category = Category });
             }
+            return View(model);
         }
 
 

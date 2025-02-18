@@ -9,5 +9,9 @@ namespace E_Commerce.Repository
         int CountOfProductAtCategory(string CategoryId);
 
         Task<List<Product>> getProductAtCategoryAsync(string CategoryId, int padgeNumber, int padgeSize);
+
+        Task<bool> IsProductExistForAddAsync(string ProductName);
+
+        Task<bool> IsProductExitsForUpdateAsync(string ProductId, string ProductName);
     }
 }

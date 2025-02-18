@@ -14,6 +14,10 @@ html, body {
     overflow-y: scroll;
 }
 
+.active-link {
+    color: white; /* Change this color as needed */
+    font-weight: bold;
+}
 .Header {
     background-color: rgba(140, 51, 255, 1);
     display: flex;
