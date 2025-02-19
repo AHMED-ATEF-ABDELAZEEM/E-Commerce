@@ -1,0 +1,262 @@
+﻿@using E_Commerce.ViewModel;
+
+@model ProductInformationAtHomeVM
+
+
+<style>
+
+    .product-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        width: 700px;
+    }
+
+
+    .product-image {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: auto 0;
+    }
+
+
+    .product-details {
+        width: 400px;
+    }
+
+
+    .product-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .product-description {
+        font-size: 16px;
+        color: #777;
+        margin-bottom: 12px;
+    }
+
+    .product-info {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 12px;
+    }
+
+    .product-price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #27ae60;
+        margin-bottom: 12px;
+    }
+
+    .product-dates {
+        font-size: 16px;
+        color: #999;
+    }
+
+    #back {
+        display: inline-block;
+        width: 70px;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 16px;
+        transition: background-color 0.3s;
+    }
+
+        #back:hover {
+            background-color: #2980b9;
+            cursor: pointer;
+        }
+
+</style>
+
+<style>
+
+    .product-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        width: 700px;
+    }
+
+
+    .product-image {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: auto 0;
+    }
+
+
+    .product-details {
+        width: 400px;
+    }
+
+
+    .product-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .product-description {
+        font-size: 16px;
+        color: #777;
+        margin-bottom: 12px;
+    }
+
+    .product-info {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 12px;
+    }
+
+    .product-price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #27ae60;
+        margin-bottom: 12px;
+    }
+
+    .product-dates {
+        font-size: 16px;
+        color: #999;
+    }
+
+    #back {
+        display: inline-block;
+        width: 70px;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 16px;
+        transition: background-color 0.3s;
+    }
+
+        #back:hover {
+            background-color: #2980b9;
+            cursor: pointer;
+        }
+
+</style>
+
+<div id="container">
+    <div class="product-card">
+        <img src="/@Model.Image" alt="Product Image" class="product-image">
+        <div class="product-details">
+            <div class="product-name">@Model.Name</div>
+            <div class="product-description">@Model.Description</div>
+            <div class="product-price"><strong>$ @Model.Price</strong></div>
+
+            <a id="back" asp-action="Index">Back</a>
+        </div>
+    </div>
+</div>
+
+@* <style>
+    .Card {
+        width:600px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        height: 500px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+        .Card img {
+            width: 350px;
+            height: 300px;
+            object-fit: contain;
+            border-right: 1px solid #eaeaea;
+        }
+
+    .Card-Content {
+        width: 300px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+        .Card-Content .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 16px;
+        }
+
+        .Card-Content .description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+            max-height: 240px;
+            overflow-y: auto;
+        }
+
+        .Card-Content .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4a154b;
+            margin-bottom: 30px;
+        }
+
+    .back {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #f1f1f1;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        width: fit-content;
+    }
+
+        .back:hover {
+            background-color: #e1e1e1;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+</style>
+
+
+<div class="Card">
+	<img src="@Model.Image" />
+	<div class="Card-Content">
+		<p class="name">@Model.Name</p>
+		<p class="description">@Model.Description</p>
+		<p class="price">@Model.Price</p>
+        <a class="back" asp-action="Index">Back</a>
+	</div>
+</div> *@
+
+

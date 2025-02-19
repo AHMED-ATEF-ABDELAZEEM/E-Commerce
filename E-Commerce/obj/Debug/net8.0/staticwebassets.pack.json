@@ -9,10 +9,6 @@
       "PackagePath": "staticwebassets\\ProductImages\\14756886-9642-4d27-b5a8-21bef6fe25b2_keyboard3.jpeg"
     },
     {
-      "Id": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\44d754e4-b1cc-49d4-88a8-f5faa61d2cf7_Xiaomi.jpeg",
-      "PackagePath": "staticwebassets\\ProductImages\\44d754e4-b1cc-49d4-88a8-f5faa61d2cf7_Xiaomi.jpeg"
-    },
-    {
       "Id": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\4e3c3906-5da1-4b6f-9db5-96f01e3ef9b8_Xiomi14Ultra.webp",
       "PackagePath": "staticwebassets\\ProductImages\\4e3c3906-5da1-4b6f-9db5-96f01e3ef9b8_Xiomi14Ultra.webp"
     },
@@ -35,6 +31,10 @@
     {
       "Id": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\8a0ac7fc-c696-4c8e-bfa6-b8ade51786ad_Sumsong.jpeg",
       "PackagePath": "staticwebassets\\ProductImages\\8a0ac7fc-c696-4c8e-bfa6-b8ade51786ad_Sumsong.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\a19384e7-80f6-457f-a32d-af8faba94278_LASTLABTOP.jpeg",
+      "PackagePath": "staticwebassets\\ProductImages\\a19384e7-80f6-457f-a32d-af8faba94278_LASTLABTOP.jpeg"
     },
     {
       "Id": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\aa8b9a9a-3a8e-49df-b177-201b082d448a_Dell-XPS-15.jpeg",

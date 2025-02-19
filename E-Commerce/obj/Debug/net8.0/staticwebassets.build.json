@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Fq/0g4lq5SriLUSsHfRYjR1W6RIjtDooLau3DpwzwEE=",
+  "Hash": "jMuEiaeR5KlDRNLEk3gRMtbxyZQO0ENnVqFPVlje/SI=",
   "Source": "E-Commerce",
   "BasePath": "_content/E-Commerce",
   "Mode": "Default",
@@ -1252,25 +1252,6 @@
       "OriginalItemSpec": "wwwroot\\ProductImages\\14756886-9642-4d27-b5a8-21bef6fe25b2_keyboard3.jpeg"
     },
     {
-      "Identity": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\44d754e4-b1cc-49d4-88a8-f5faa61d2cf7_Xiaomi.jpeg",
-      "SourceId": "E-Commerce",
-      "SourceType": "Discovered",
-      "ContentRoot": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\",
-      "BasePath": "_content/E-Commerce",
-      "RelativePath": "ProductImages/44d754e4-b1cc-49d4-88a8-f5faa61d2cf7_Xiaomi.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\ProductImages\\44d754e4-b1cc-49d4-88a8-f5faa61d2cf7_Xiaomi.jpeg"
-    },
-    {
       "Identity": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\4e3c3906-5da1-4b6f-9db5-96f01e3ef9b8_Xiomi14Ultra.webp",
       "SourceId": "E-Commerce",
       "SourceType": "Discovered",
@@ -1383,6 +1364,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProductImages\\8a0ac7fc-c696-4c8e-bfa6-b8ade51786ad_Sumsong.jpeg"
+    },
+    {
+      "Identity": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\a19384e7-80f6-457f-a32d-af8faba94278_LASTLABTOP.jpeg",
+      "SourceId": "E-Commerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\",
+      "BasePath": "_content/E-Commerce",
+      "RelativePath": "ProductImages/a19384e7-80f6-457f-a32d-af8faba94278_LASTLABTOP.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImages\\a19384e7-80f6-457f-a32d-af8faba94278_LASTLABTOP.jpeg"
     },
     {
       "Identity": "F:\\programming\\Back End\\Project\\E - Commerce\\E-Commerce\\E-Commerce\\wwwroot\\ProductImages\\aa8b9a9a-3a8e-49df-b177-201b082d448a_Dell-XPS-15.jpeg",

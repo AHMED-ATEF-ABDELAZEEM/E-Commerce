@@ -12,6 +12,7 @@ namespace E_Commerce.Service
         Task<UpdateProductVM> getModelForUpdateProductAsync(string Id);
         Task<bool> IsProductExistForAddAsync(string ProductName);
         Task<bool> IsProductExistForUpdateAsync(string ProductId,string ProductName);
+        PadgeInformationVM getPadgeInformation(int padgeNumber, int padgeSize, string? Category);
 
     }
 }

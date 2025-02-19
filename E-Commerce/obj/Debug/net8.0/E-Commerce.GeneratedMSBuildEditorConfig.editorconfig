@@ -42,8 +42,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcVXBkYXRlQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Home/getProductInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxnZXRQcm9kdWN0SW5mb3JtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Home/_ProductCardAtHomePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfUHJvZHVjdENhcmRBdEhvbWVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Product/AddNewProduct.cshtml]

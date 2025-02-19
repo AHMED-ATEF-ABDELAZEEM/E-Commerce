@@ -1,6 +1,80 @@
 ﻿
+@using E_Commerce.ViewModel
+@model List<ProductAtHomeVM>
 
-<h3>Building E-Commerce From Scartch</h3>
+
+
+<style>
+    .Container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+		justify-content:center;
+        align-items:center;
+    }
+</style>
+
+<style>
+    a{
+        text-decoration:none;
+    }
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: rgba(246, 245, 245, 1);
+        width:220px;
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+        }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .card-price {
+        font-size: 18px;
+        font-weight: 700;
+        color: #4a154b;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .buttons a {
+            text-align: center;
+        }
+</style>
+
+<div class="Container">
+	@foreach (var product in Model)
+	{
+		@await Html.PartialAsync("_ProductCardAtHomePartial", product)		
+	}
+</div>
+
+
 
 
 

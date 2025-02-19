@@ -19,8 +19,9 @@ namespace E_Commerce
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IHomeService, HomeService>();
 
-            builder.Services.AddDbContext<AppDbContext>(option =>
+			builder.Services.AddDbContext<AppDbContext>(option =>
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
             });

@@ -156,18 +156,22 @@ namespace E_Commerce.Service
 
         public async Task<ShowProductAtPadgeVM> getProductsAtPadgeAsync (int padgeNumber,int padgeSize)
         {
-            var CountOfAllProduct =  ProductRepository.CountOfAllProducts();
+            //var CountOfAllProduct =  ProductRepository.CountOfAllProducts();
 
+            //var model = new ShowProductAtPadgeVM();
+            //model.CurrentPadge = padgeNumber;
+            //model.PadgeSize = padgeSize;
+            //model.CountOfPadge = (int) Math.Ceiling((double)CountOfAllProduct / padgeSize);
+            //if (padgeNumber > model.CountOfPadge)
+            //{
+            //    model.CurrentPadge--;
+            //    if (model.CurrentPadge == 0) model.CurrentPadge = 1;
+            //}
             var model = new ShowProductAtPadgeVM();
-            model.CurrentPadge = padgeNumber;
-            model.PadgeSize = padgeSize;
-            model.CountOfPadge = (int) Math.Ceiling((double)CountOfAllProduct / padgeSize);
-            if (padgeNumber > model.CountOfPadge)
-            {
-                model.CurrentPadge--;
-                if (model.CurrentPadge == 0) model.CurrentPadge = 1;
-            }
-            var products = await ProductRepository.getProductAtPadge(model.CurrentPadge, padgeSize);
+
+             model.PadgeInformation =  getPadgeInformation(padgeNumber, padgeSize, null);
+
+            var products = await ProductRepository.getProductAtPadge(model.PadgeInformation.CurrentPadge, padgeSize);
 
             model.Products = products.Select(x => new ShowProductVM
             {
@@ -189,17 +193,22 @@ namespace E_Commerce.Service
 
         public async Task<ShowProductAtPadgeVM> getProductsAtCategoryAsync(string Category, int padgeNumber, int padgeSize)
         {
-           int CountOfProduct = ProductRepository.CountOfProductAtCategory(Category);
+            //int CountOfProduct = ProductRepository.CountOfProductAtCategory(Category);
+            // var model = new ShowProductAtPadgeVM();
+            // model.CurrentPadge = padgeNumber;
+            // model.PadgeSize = padgeSize;
+            // model.CountOfPadge = (int)Math.Ceiling((double)CountOfProduct / padgeSize);
+            // if (padgeNumber > model.CountOfPadge)
+            // {
+            //     model.CurrentPadge--;
+            //     if (model.CurrentPadge == 0) model.CurrentPadge = 1;
+            // }
+
             var model = new ShowProductAtPadgeVM();
-            model.CurrentPadge = padgeNumber;
-            model.PadgeSize = padgeSize;
-            model.CountOfPadge = (int)Math.Ceiling((double)CountOfProduct / padgeSize);
-            if (padgeNumber > model.CountOfPadge)
-            {
-                model.CurrentPadge--;
-                if (model.CurrentPadge == 0) model.CurrentPadge = 1;
-            }
-            var products = await ProductRepository.getProductAtCategoryAsync(Category, model.CurrentPadge, padgeSize);
+
+             model.PadgeInformation =  getPadgeInformation(padgeNumber, padgeSize, Category);
+
+            var products = await ProductRepository.getProductAtCategoryAsync(Category, model.PadgeInformation.CurrentPadge, padgeSize);
 
             model.Products = products.Select(x => new ShowProductVM
             {
@@ -214,6 +223,29 @@ namespace E_Commerce.Service
             model.CategoryDropdownList = await GetCategoryDropdownVM();
             model.CategoryDropdownList.Insert(0, new CategoryDropdownVM { CategoryId = "All", Name = "All" });
 
+            return model;
+        }
+
+        public  PadgeInformationVM getPadgeInformation (int padgeNumber, int padgeSize,string? Category)
+        {
+            int CountOfProduct;
+            if(Category == null)
+            {
+                CountOfProduct = ProductRepository.CountOfAllProducts();
+            }
+            else
+            {
+                CountOfProduct = ProductRepository.CountOfProductAtCategory(Category);
+            }
+            var model = new PadgeInformationVM();
+            model.CurrentPadge = padgeNumber;
+            model.PadgeSize = padgeSize;
+            model.CountOfPadge = (int)Math.Ceiling((double)CountOfProduct / padgeSize);
+            if (padgeNumber > model.CountOfPadge)
+            {
+                model.CurrentPadge--;
+                if (model.CurrentPadge == 0) model.CurrentPadge = 1;
+            }
             return model;
         }
 

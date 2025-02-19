@@ -194,7 +194,7 @@
                 </tr>
             </thead>
             @{
-                int start = ((Model.CurrentPadge - 1) * Model.PadgeSize) + 1;
+                int start = ((Model.PadgeInformation.CurrentPadge - 1) * Model.PadgeInformation.PadgeSize) + 1;
             }
             @foreach (var product in Model.Products)
             {
@@ -213,7 +213,7 @@
             }
         </table>
 
-        <h2>@Model.CurrentPadge</h2>
+        <h2>@Model.PadgeInformation.CurrentPadge</h2>
     }
 
     else
@@ -223,11 +223,11 @@
 
     
     <div class="parent">
-        @if (Model.CountOfPadge > 1)
+        @if (Model.PadgeInformation.CountOfPadge > 1)
         {
-            for (int i = 1; i <= Model.CountOfPadge; i++)
+            for (int i = 1; i <= Model.PadgeInformation.CountOfPadge; i++)
             {
-                if (Model.CurrentPadge == i)
+                if (Model.PadgeInformation.CurrentPadge == i)
                 {
                     <a class="active">@i</a>
                 }
