@@ -34,21 +34,21 @@ namespace E_Commerce.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> getProductsAtHomePadge(int padgeNumber, string Category)
-        {
-            var model = new ShowProductAtPadgeVM();
-            //HttpContext.Session.SetString("Category", Category);
-            //HttpContext.Session.SetInt32("PadgeNumber", padgeNumber);
-            if (Category == "All")
-            {
-                model = await ProductService.getProductsAtPadgeAsync(padgeNumber, 5);
-            }
-            else
-            {
-                model = await ProductService.getProductsAtCategoryAsync(Category, padgeNumber, 5);
-            }
-            return View(model);
-        }
+        //public async Task<IActionResult> getProductsAtHomePadge(int padgeNumber, string Category)
+        //{
+        //    var model = new ShowProductAtPadgeVM();
+        //    //HttpContext.Session.SetString("Category", Category);
+        //    //HttpContext.Session.SetInt32("PadgeNumber", padgeNumber);
+        //    if (Category == "All")
+        //    {
+        //        model = await ProductService.getProductsAtPadgeAsync(padgeNumber, 5);
+        //    }
+        //    else
+        //    {
+        //        model = await ProductService.getProductsAtCategoryAsync(Category, padgeNumber, 5);
+        //    }
+        //    return View(model);
+        //}
 
 
 

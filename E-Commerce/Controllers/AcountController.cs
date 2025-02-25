@@ -10,13 +10,15 @@ namespace E_Commerce.Controllers
     {
 
         private readonly UserManager<ApplicationUser> UserManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
 
         private readonly AppDbContext context;
 
-        public AcountController(UserManager<ApplicationUser> UserManager, AppDbContext context)
+        public AcountController(UserManager<ApplicationUser> UserManager, AppDbContext context, SignInManager<ApplicationUser> signInManager)
         {
             this.UserManager = UserManager;
             this.context = context;
+            this.signInManager = signInManager;
         }
         [HttpGet]
         public IActionResult Register()
@@ -24,6 +26,7 @@ namespace E_Commerce.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterNewUserVM NewUser)
         {
             if (ModelState.IsValid)
@@ -53,9 +56,56 @@ namespace E_Commerce.Controllers
                     await UserManager.AddToRoleAsync(user, "User");
                     return RedirectToAction("LogIn");
                 }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
             }
             return View(NewUser);
         }
+
+
+
+
+        [HttpGet]
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LogIn(LogInUserVM LogInUser)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByEmailAsync(LogInUser.Email);
+                if (user != null)
+                {
+                    var CheckPassword = await UserManager.CheckPasswordAsync(user, LogInUser.Password);
+                    if (CheckPassword)
+                    {
+                        // Create Cookie
+                        await signInManager.SignInAsync(user, isPersistent: false);
+                        return RedirectToAction("Index","Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Password", "Password Is Not Correct");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "This Email Is Not Exist");
+                }
+            }
+            return View(LogInUser);
+        }
+
+
 
 
 
