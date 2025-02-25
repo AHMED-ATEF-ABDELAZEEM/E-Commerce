@@ -2,6 +2,7 @@ using E_Commerce.Models;
 using E_Commerce.Repository;
 using E_Commerce.Service;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce
@@ -25,6 +26,8 @@ namespace E_Commerce
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
             });
+            builder.Services.AddIdentity<ApplicationUser,IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
 
             builder.Services.Configure<FormOptions>(options =>
             {
