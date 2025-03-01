@@ -26,12 +26,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\programming\Back End\Project\E - Commerce\E-Commerce\E-Commerce
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Acount/LogIn.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XExvZ0luLmNzaHRtbA==
+[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Account/LogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dJbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Acount/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XFJlZ2lzdGVyLmNzaHRtbA==
+[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Category/AddNewCategory.cshtml]
@@ -96,6 +96,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Wishlist/getUserWishlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2lzaGxpc3RcZ2V0VXNlcldpc2hsaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/Wishlist/_ProductCardAtWishlistPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2lzaGxpc3RcX1Byb2R1Y3RDYXJkQXRXaXNobGlzdFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/E - Commerce/E-Commerce/E-Commerce/Views/_ViewImports.cshtml]

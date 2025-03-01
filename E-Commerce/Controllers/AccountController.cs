@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace E_Commerce.Controllers
 {
-    public class AcountController : Controller
+    public class AccountController : Controller
     {
 
         private readonly UserManager<ApplicationUser> UserManager;
@@ -14,7 +14,7 @@ namespace E_Commerce.Controllers
 
         private readonly AppDbContext context;
 
-        public AcountController(UserManager<ApplicationUser> UserManager, AppDbContext context, SignInManager<ApplicationUser> signInManager)
+        public AccountController(UserManager<ApplicationUser> UserManager, AppDbContext context, SignInManager<ApplicationUser> signInManager)
         {
             this.UserManager = UserManager;
             this.context = context;
@@ -106,7 +106,12 @@ namespace E_Commerce.Controllers
         }
 
 
-
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction(nameof(LogIn));
+        }
 
 
     }

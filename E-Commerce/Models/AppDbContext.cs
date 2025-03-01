@@ -9,6 +9,8 @@ namespace E_Commerce.Models
 
         public DbSet<CustomerProfile> CustomerProfiles { get; set; }
 
+        public DbSet<WishList> WishLists { get; set; }
+
         public AppDbContext()
         {
             
@@ -21,6 +23,13 @@ namespace E_Commerce.Models
         {
             //optionsBuilder.UseSqlServer("Server=.;Database=E-Commerce;User Id=sa;Password=221037;TrustServerCertificate=True");
             base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<WishList>()
+                .HasKey(x => new { x.ProductId, x.CustomerId });
+            base.OnModelCreating(builder);
         }
     }
 }

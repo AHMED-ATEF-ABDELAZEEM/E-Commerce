@@ -66,6 +66,11 @@ namespace E_Commerce.Repository
                 .ToListAsync();
         }
 
+        public async Task<bool> IsProductExist(string ProductId)
+        {
+            return await context.Products.AnyAsync(x => x.Id == ProductId);
+        }
+
         public async Task<bool> IsProductExistForAddAsync(string ProductName)
         {
             return await context.Products.AnyAsync(x => x.Name.ToLower() == ProductName.ToLower());

@@ -1,6 +1,7 @@
 using E_Commerce.Models;
 using E_Commerce.Repository;
 using E_Commerce.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,14 +19,20 @@ namespace E_Commerce
 
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IWishlistRepository, WishlistRepository>();
+            builder.Services.AddScoped<ICustomerProfileRepository, CustomerProfileRepository>();
+
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IWishlistService, WishlistService>();
             builder.Services.AddScoped<IHomeService, HomeService>();
 
 			builder.Services.AddDbContext<AppDbContext>(option =>
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
             });
+
+
             builder.Services.AddIdentity<ApplicationUser,IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
 
@@ -33,7 +40,18 @@ namespace E_Commerce
             {
                 options.MultipartBodyLengthLimit = 10485760; // 10MB
             });
+
             builder.Services.AddSession();
+
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Account/LogIn"; // Redirects unauthenticated users
+                options.AccessDeniedPath = "/Account/AccessDenied"; // Redirects unauthorized users
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // Optional: Set expiration
+            });
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

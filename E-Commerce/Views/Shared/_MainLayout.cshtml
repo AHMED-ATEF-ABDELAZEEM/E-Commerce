@@ -1,40 +1,43 @@
 ﻿
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />  *@
+    @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/getAllCategory.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/AddNewCategory.css" asp-append-version="true" />
-@*     <link rel="stylesheet" href="~/E_Commerce.styles.css" asp-append-version="true" /> *@
+    @* <link rel="stylesheet" href="~/E_Commerce.styles.css" asp-append-version="true" /> *@
 
 </head>
 <body>
     <div class="Header">
         <h2>E-Commerce</h2>
         <Div class="Nav">
-@*             <a  onclick="ChangeColor(this,event)">Home</a>
-            <a  onclick="ChangeColor(this)">Offer</a>
-            <a  onclick="ChangeColor(this,event)" asp-action="getAllCategory" asp-controller="Category">Category</a>
-            <a  onclick="ChangeColor(this,event)" asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a>
-            <a  onclick="ChangeColor(this)">history</a>
-            <a  onclick="ChangeColor(this)">Wishlist</a>
-            <a  onclick="ChangeColor(this)">Cart</a>
-            <a  onclick="ChangeColor(this)">Acount</a>
-            <a  onclick="ChangeColor(this)">Logout</a> *@
 
-            <a onclick="ChangeColor(this)" asp-action="Index" asp-controller="Home">Home</a>
-            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Category</a>
-            <a onclick="ChangeColor(this)" asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a>
-            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Offer</a>
-            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">history</a>
-            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Wishlist</a>
-            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Cart</a>
-            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Acount</a>
-            <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Logout</a>
-            <a onclick="ChangeColor(this)" asp-action="Register" asp-controller="Acount">Register</a>
+            <a asp-action="Index" asp-controller="Home">Home</a>
+            <a asp-action="getAllCategory" asp-controller="Category">Category</a>
+            <a asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a>
+            @* <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Offer</a> *@
+            @* <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">history</a> *@
+            <a asp-action="getUserWishlist" asp-controller="Wishlist">Wishlist</a>
+            <a asp-action="getAllCategory" asp-controller="Category">Cart</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Logout" asp-controller="Account">Logout</a>
+                <a asp-action="getAllCategory" asp-controller="Category">@User.Identity.Name</a>
+            }
+            else
+            {
+                <a asp-action="Register" asp-controller="Account">Register</a>
+                <a asp-action="LogIn" asp-controller="Account">LogIn</a>
+
+            }
         </Div>
     </div>
 
@@ -62,6 +65,71 @@
 
 
 
+
+
+
+
+@* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" asp-action="Index" asp-controller="Home">E-Commerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" asp-action="Index" asp-controller="Home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="getAllCategory" asp-controller="Category">Category</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="getUserWishlist" asp-controller="Wishlist">Wishlist</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-action="getAllCategory" asp-controller="Category">Cart</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-action="Logout" asp-controller="Account">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-action="getAllCategory" asp-controller="Category">@User.Identity.Name</a></li>
+                    }
+                    else
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-action="Register" asp-controller="Account">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-action="LogIn" asp-controller="Account">LogIn</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    <main class="container mt-5 pt-5 flex-grow-1">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <h5 class="mb-1">E-Commerce</h5>
+        <p class="mb-0">Created By Eng Ahmed Atef</p>
+        <p class="mb-0">Contact: ahmedatefabdelazeem@gmail.com</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html> *@
 
 
 

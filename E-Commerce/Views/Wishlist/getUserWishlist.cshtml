@@ -1,0 +1,114 @@
+﻿@using E_Commerce.ViewModel
+@model List<ProductAtHomeVM>
+
+
+
+<style>
+    .Container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: rgba(246, 245, 245, 1);
+        width: 220px;
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+        }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .card-price {
+        font-size: 18px;
+        font-weight: 700;
+        color: #4a154b;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .buttons a {
+            text-align: center;
+        }
+    .parent{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .clear {
+        display:block;
+        text-align:center;
+        padding:10px 20px;
+        font-weight:bold;
+        background-color: rgba(140, 51, 255, 1);
+        color:white;
+        margin: auto;
+        width:100px;
+        margin:25px 0px;
+        border-radius:10px;
+    }
+</style>
+
+<div >
+    @if (Model != null)
+    {
+        <div class="Container">
+            @foreach (var product in Model)
+            {
+                @await Html.PartialAsync("_ProductCardAtWishlistPartial", product)
+            }
+        </div>
+        <div class="parent">
+            <a asp-action="ClearWishlist" class="clear">Clear</a>
+        </div>
+
+
+    }
+    else
+    {
+        <h3>There Is No Product At Wishlist</h3>
+    }
+
+</div>
+
+
+
+
+
+
+
+
+
