@@ -21,13 +21,15 @@ namespace E_Commerce
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<IWishlistRepository, WishlistRepository>();
             builder.Services.AddScoped<ICustomerProfileRepository, CustomerProfileRepository>();
+            builder.Services.AddScoped<ICartRepository, CartRepository>();
 
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddScoped<IWishlistService, WishlistService>();
             builder.Services.AddScoped<IHomeService, HomeService>();
+            builder.Services.AddScoped<ICartService, CartService>();
 
-			builder.Services.AddDbContext<AppDbContext>(option =>
+            builder.Services.AddDbContext<AppDbContext>(option =>
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
             });

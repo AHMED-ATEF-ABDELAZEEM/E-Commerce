@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Models;
 using E_Commerce.Repository;
+using E_Commerce.Service;
 using E_Commerce.ViewModel.CartVM;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,26 +13,34 @@ namespace E_Commerce.Controllers
     public class CartController : Controller
     {
         private readonly AppDbContext context;
-        public CartController(AppDbContext context)
+        private readonly ICartService CartService;
+        public CartController(AppDbContext context, ICartService CartService)
         {
             this.context = context;
+            this.CartService = CartService;
         }
 
+        //public async Task<IActionResult> getUserCart()
+        //{
+        //    string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        //    var ProductAtCart = await context.CartItems
+        //        .Include(x => x.Product_ref)
+        //        .Where(x => x.UserId == UserId)
+        //        .Select(x => new ShowProductAtCartVM
+        //        {
+        //            ProductId = x.ProductId,
+        //            Name = x.Product_ref.Name,
+        //            Price = x.Product_ref.Price,
+        //            Quantaty = x.Quantaty,
+        //            TotalPrice = x.Product_ref.Price * x.Quantaty,
+        //            ImagePath = x.Product_ref.ImagePath
+        //        }).ToListAsync();
+        //    return View(ProductAtCart);
+        //}
         public async Task<IActionResult> getUserCart()
         {
             string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var ProductAtCart = await context.CartItems
-                .Include(x => x.Product_ref)
-                .Where(x => x.UserId == UserId)
-                .Select(x => new ShowProductAtCartVM
-                {
-                    ProductId = x.ProductId,
-                    Name = x.Product_ref.Name,
-                    Price = x.Product_ref.Price,
-                    Quantaty = x.Quantaty,
-                    TotalPrice = x.Product_ref.Price * x.Quantaty,
-                    ImagePath = x.Product_ref.ImagePath
-                }).ToListAsync();
+            var ProductAtCart = await CartService.getUserCartAsync(UserId);
             return View(ProductAtCart);
         }
 
