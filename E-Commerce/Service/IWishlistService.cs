@@ -49,7 +49,7 @@ namespace E_Commerce.Service
 
         public async Task<bool> IsProductExist(string productId)
         {
-            return await productRepository.IsProductExist(productId);
+            return await productRepository.IsProductExistAsync(productId);
         }
 
         public async Task<bool> IsProductExistAtUserWishlistAsync(string UserId, string ProductId)

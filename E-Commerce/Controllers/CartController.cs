@@ -44,44 +44,70 @@ namespace E_Commerce.Controllers
             return View(ProductAtCart);
         }
 
+        //public async Task<IActionResult> AddProductToCart(string ProductId)
+        //{
+        //    bool IsProductExist = await context.Products.AnyAsync(x => x.Id == ProductId);
+        //    if (IsProductExist)
+        //    {
+        //        string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        //        bool IsExistAtUserCart = await context.CartItems.AnyAsync(x => x.ProductId == ProductId && x.UserId == UserId);
+        //        if (IsExistAtUserCart)
+        //        {
+        //            return Content("This Product Is Already Exist At Cart");
+        //        }
+        //        else
+        //        {
+        //            var CustomerProfile = await context.CustomerProfiles.FirstOrDefaultAsync(x => x.CustomerId == UserId);
+        //            if (CustomerProfile.CartCount < 5)
+        //            {
+        //                var CartItem = new CartItem
+        //                {
+        //                    UserId = UserId,
+        //                    ProductId = ProductId,
+        //                    Quantaty = 1,
+        //                };
+        //                await context.CartItems.AddAsync(CartItem);
+        //                CustomerProfile.CartCount++;
+        //                await context.SaveChangesAsync();
+        //                HttpContext.Session.SetInt32("CartCount", CustomerProfile.CartCount);
+        //                return RedirectToAction("Index", "Home");
+        //            }
+        //            else
+        //            {
+        //                return Content("You Access To Max Number Of Product At Cart");
+        //            }
+
+        //        }
+
+        //    }
+        //    return Content("This Product Is Not Exist");
+        //}
+
+
         public async Task<IActionResult> AddProductToCart(string ProductId)
         {
-            bool IsProductExist = await context.Products.AnyAsync(x => x.Id == ProductId);
-            if (IsProductExist)
+            if (!await CartService.IsProductExistAsync(ProductId))
+                return Content("This Product Is Not Exist");
+
+            string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            if (await CartService.IsProductExistAtUserCartAsync(UserId, ProductId))
+                return Content("This Product Is Already Exist At Cart");
+
+            var CustomerProfile = await CartService.GetCustomerProfileAsync(UserId);
+
+
+            if (CustomerProfile.CartCount >= 5)
             {
-                string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                bool IsExistAtUserCart = await context.CartItems.AnyAsync(x => x.ProductId == ProductId && x.UserId == UserId);
-                if (IsExistAtUserCart)
-                {
-                    return Content("This Product Is Already Exist At Cart");
-                }
-                else
-                {
-                    var CustomerProfile = await context.CustomerProfiles.FirstOrDefaultAsync(x => x.CustomerId == UserId);
-                    if (CustomerProfile.CartCount < 5)
-                    {
-                        var CartItem = new CartItem
-                        {
-                            UserId = UserId,
-                            ProductId = ProductId,
-                            Quantaty = 1,
-                        };
-                        await context.CartItems.AddAsync(CartItem);
-                        CustomerProfile.CartCount++;
-                        await context.SaveChangesAsync();
-                        HttpContext.Session.SetInt32("CartCount", CustomerProfile.CartCount);
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        return Content("You Access To Max Number Of Product At Cart");
-                    }
-
-                }
-
+                return Content("You Access To Max Number Of Product At Cart");
             }
-            return Content("This Product Is Not Exist");
+
+
+            await CartService.AddProductToCartAsync(ProductId, CustomerProfile);
+            HttpContext.Session.SetInt32("CartCount", CustomerProfile.CartCount);
+            return RedirectToAction("Index", "Home");
         }
+
 
         public async Task<IActionResult> ClearUserCart()
         {

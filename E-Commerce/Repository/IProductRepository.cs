@@ -14,6 +14,6 @@ namespace E_Commerce.Repository
 
         Task<bool> IsProductExitsForUpdateAsync(string ProductId, string ProductName);
 
-        Task<bool> IsProductExist(string ProductId);
+        Task<bool> IsProductExistAsync(string ProductId);
     }
 }

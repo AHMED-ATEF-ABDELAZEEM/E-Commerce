@@ -70,6 +70,8 @@ namespace E_Commerce
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.MapControllerRoute(
