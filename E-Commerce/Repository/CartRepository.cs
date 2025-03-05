@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Models;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Repository
@@ -14,6 +15,10 @@ namespace E_Commerce.Repository
         Task<List<CartItem>> GetUserCartItemsAsync (string UserId);
 
         Task ClearUserCartAsync (List<CartItem> cartItems);
+
+        Task<CartItem> GetCartItemAsync (string UserId,string ProductId);
+
+        Task RemoveCartItemAsync (CartItem cartItem);
     }
     public class CartRepository : ICartRepository
     {
@@ -35,6 +40,11 @@ namespace E_Commerce.Repository
             await context.SaveChangesAsync();
         }
 
+        public async Task<CartItem> GetCartItemAsync(string UserId, string ProductId)
+        {
+            return await context.CartItems.FirstOrDefaultAsync(x => x.ProductId == ProductId && x.UserId == UserId);
+        }
+
         public async Task<List<CartItem>> GetUserCartItemsAsync(string UserId)
         {
             return await context.CartItems.Where(x => x.UserId == UserId).ToListAsync();
@@ -54,6 +64,12 @@ namespace E_Commerce.Repository
         public async Task<bool> IsProductExistAtUserCartAsync(string UserId, string ProductId)
         {
             return await context.CartItems.AnyAsync(x => x.ProductId == ProductId && x.UserId == UserId);
+        }
+
+        public async Task RemoveCartItemAsync(CartItem cartItem)
+        {
+            context.CartItems.Remove(cartItem);
+            await context.SaveChangesAsync();
         }
     }
 }

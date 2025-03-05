@@ -16,6 +16,7 @@ namespace E_Commerce.Service
         Task ClearCartAsync (string UserId);
 
         Task AddProductToCartAsync(string ProductId, CustomerProfile CustomerProfile);
+        Task RemoveProductFromUserCartAsync(string ProductId, CustomerProfile CustomerProfile);
     }
     public class CartService : ICartService
     {
@@ -82,6 +83,16 @@ namespace E_Commerce.Service
         public async Task<bool> IsProductExistAtUserCartAsync(string UserId, string ProductId)
         {
             return await CartRepository.IsProductExistAtUserCartAsync(UserId, ProductId);
+        }
+
+        public async Task RemoveProductFromUserCartAsync(string ProductId, CustomerProfile CustomerProfile)
+        {
+            var CartItem = await CartRepository.GetCartItemAsync(CustomerProfile.CustomerId, ProductId);
+            if (CartItem != null)
+            {
+                CustomerProfile.CartCount--;
+                await CartRepository.RemoveCartItemAsync(CartItem);
+            }
         }
 
         //public async Task UpdateCustomerProfileAsync(CustomerProfile customerProfile)
