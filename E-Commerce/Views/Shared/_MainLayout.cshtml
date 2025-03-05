@@ -1,6 +1,9 @@
 ﻿
 
-
+@{
+    var WishlistCount = Context.Session.GetInt32("WishlistCount");
+    var CartCount = Context.Session.GetInt32("CartCount");
+}
 
 
 <!DOCTYPE html>
@@ -18,15 +21,29 @@
 <body>
     <div class="Header">
         <h2>E-Commerce</h2>
-        <Div class="Nav">
-
+        <div class="Nav">
             <a asp-action="Index" asp-controller="Home">Home</a>
             <a asp-action="getAllCategory" asp-controller="Category">Category</a>
             <a asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a>
-            @* <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">Offer</a> *@
-            @* <a onclick="ChangeColor(this)" asp-action="getAllCategory" asp-controller="Category">history</a> *@
-            <a asp-action="getUserWishlist" asp-controller="Wishlist">Wishlist</a>
-            <a asp-action="getAllCategory" asp-controller="Category">Cart</a>
+
+            <!-- Wishlist -->
+            <a asp-action="getUserWishlist" asp-controller="Wishlist" class="position-relative">
+                Wishlist
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <span id="wishlistCount" class="count-badge">@WishlistCount</span>
+                }
+            </a>
+
+            <!-- Cart -->
+            <a asp-action="getUserCart" asp-controller="Cart" class="position-relative">
+                Cart
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <span id="cartCount" class="count-badge">@CartCount</span>
+                }
+            </a>
+
             @if (User.Identity.IsAuthenticated)
             {
                 <a asp-action="Logout" asp-controller="Account">Logout</a>
@@ -36,9 +53,9 @@
             {
                 <a asp-action="Register" asp-controller="Account">Register</a>
                 <a asp-action="LogIn" asp-controller="Account">LogIn</a>
-
             }
-        </Div>
+        </div>
+
     </div>
 
     <div class="content">

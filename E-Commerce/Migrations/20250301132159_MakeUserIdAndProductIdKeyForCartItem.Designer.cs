@@ -4,6 +4,7 @@ using E_Commerce.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250301132159_MakeUserIdAndProductIdKeyForCartItem")]
+    partial class MakeUserIdAndProductIdKeyForCartItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,12 +102,21 @@ namespace E_Commerce.Migrations
                     b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Quantaty")
                         .HasColumnType("int");
 
                     b.HasKey("UserId", "ProductId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("CartItems");
                 });
@@ -358,17 +370,6 @@ namespace E_Commerce.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("E_Commerce.Models.CartItem", b =>
-                {
-                    b.HasOne("E_Commerce.Models.Product", "Product_ref")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product_ref");
                 });
 
             modelBuilder.Entity("E_Commerce.Models.CustomerProfile", b =>

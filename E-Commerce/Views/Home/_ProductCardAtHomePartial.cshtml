@@ -10,7 +10,7 @@
                 <p class="card-price">@Model.Price $</p>
                 <div class="buttons">
                     <a asp-action="AddProductToWishList" asp-route-ProductId="@Model.ProductId" asp-controller="Wishlist" class="btn btn-success">WishList</a>
-                    <a asp-action="AddProductToCart" asp-route-ProductId="@Model.ProductId" class="btn btn-success">Cart</a>
+                    <a asp-action="AddProductToCart" asp-controller="Cart" asp-route-ProductId="@Model.ProductId" class="btn btn-success">Cart</a>
                 </div>
             </div>  
         </div>

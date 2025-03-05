@@ -7,9 +7,9 @@
 
 html, body {
     background-color: rgba(246, 245, 245, 1);
-    height: 100%;  Ensures the body fills the viewport height 
-    display: flex;  Makes the body a flex container 
-    flex-direction: column;  Stacks children vertically 
+    height: 100%;  /*Ensures the body fills the viewport height */
+    display: flex; /* Makes the body a flex container */
+    flex-direction: column;  /*Stacks children vertically */
     scrollbar-gutter: stable;
     overflow-y: scroll;
 }
@@ -37,7 +37,52 @@ html, body {
         font-size: 30px;
     }
 
+
+/* Navigation Bar */
 .Nav {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    margin-left: 20px;
+}
+
+    /* Links */
+    .Nav a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin: 0 10px;
+        transition: 0.4s;
+        cursor: pointer;
+        position: relative; /* Needed for count badge */
+    }
+
+        .Nav a:hover {
+            transform: scale(1.2);
+            color: black;
+        }
+
+/* Badge for Cart & Wishlist */
+.count-badge {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/*.Nav {
     display: flex;
     align-items: center;
     width: 75%;
@@ -58,7 +103,7 @@ html, body {
         .Nav a:hover {
             transform: scale(1.2);
             color: black;
-        }
+        }*/
 
 
 
@@ -79,4 +124,23 @@ html, body {
     padding: 20px 30px;
     height: 60px;
     color: white;
+}
+
+
+.count-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }

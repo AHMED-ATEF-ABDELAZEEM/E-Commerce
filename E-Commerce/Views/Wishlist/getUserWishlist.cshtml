@@ -80,10 +80,25 @@
         margin:25px 0px;
         border-radius:10px;
     }
+
+    .message {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }  
+
+    .message h2 {
+            text-align: center;
+            color: #666;
+
+    }
 </style>
 
 <div >
-    @if (Model != null)
+    @if (Model.Count != 0)
     {
         <div class="Container">
             @foreach (var product in Model)
@@ -99,7 +114,9 @@
     }
     else
     {
-        <h3>There Is No Product At Wishlist</h3>
+        <div class="message">
+            <h2>There Is No Product At Wishlist</h2>
+        </div>
     }
 
 </div>

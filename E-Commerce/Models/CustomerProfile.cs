@@ -14,7 +14,7 @@ namespace E_Commerce.Models
         public string? Street { get; set; }   // الشارع
         public int WishlistCount { get; set; }
         public int CartCount { get; set; }
-        public bool IsActive { get; set; } // At least Make one order
+        public bool IsActive { get; set; } // At least User Make one order
 
         public virtual ApplicationUser? User { get; set; }
     }

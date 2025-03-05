@@ -1,0 +1,150 @@
+﻿@using E_Commerce.ViewModel.CartVM
+
+@model List<ShowProductAtCartVM>;
+
+
+<style>
+    .container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .Product-Cart {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: white;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .Product-Cart img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .Product-Cart .item {
+            margin: 0 5px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+    input[type="number"] {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .action {
+        display: flex;
+        gap: 10px;
+    }
+
+        .action a {
+            text-decoration: none;
+            color: white;
+            background: #e74c3c;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            cursor:pointer;
+        }
+
+            .action a:hover {
+                background: #c0392b;
+            }
+
+    .message{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        margin:auto 0px;
+    }
+
+    .message h2 {
+        text-align: center;
+        color: #666;
+    }
+
+    .product-name{
+        width:160px;
+    }
+    .price-item {
+        font-weight:700;
+        color:forestgreen;
+        font-size:20px;
+    }
+</style>
+
+
+<script>
+    function UpdateProductCart(productId) {
+        let quantity = document.getElementById(`quantaty-${productId}`).value;
+
+        // Redirect to the UpdateCart action
+        window.location.href = `/Cart/UpdateCart?ProductId=${productId}&quantaty=${quantity}`;
+    }
+</script>
+
+<div class="container">
+	@if(Model.Count != 0)
+	{
+		foreach (var product in Model)
+		{
+			<div class="Product-Cart">
+				<img src="/@product.ImagePath" />
+				<p class="product-name item">@product.Name</p>
+                <div class="price">
+                    <p class="name-item item">Price</p>
+                    <br />
+                    <p class="price-item">@product.Price</p>
+                </div>
+				<div class="count">
+                    <p class="item">Count</p>
+                    <br />
+                    <input type="number" id="quantaty-@product.ProductId" value="@product.Quantaty" min="1" max="5" />
+                </div>
+                <div class="count">
+                    <p class="item">Total Price</p>
+                    <br />
+                    <p class="price-item">@product.TotalPrice</p>
+                </div>
+				
+				<div class="action">
+					<a asp-action="RemoveProductFromCart" asp-route-ProductId="@product.ProductId">Remove</a>
+                    <a onclick="UpdateProductCart(@product.ProductId)">Update</a>
+				</div>
+			</div>
+		}
+	}
+	else
+	{
+        <div class="message">
+            <h2>There Is No Product At Cart</h2>
+        </div>
+	}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,7 +38,9 @@ namespace E_Commerce.Controllers
                         CustomerProfile.WishlistCount++;
                         await wishlistService.UpdateCustomerProfileAsync(CustomerProfile);
 
-                        return Content($"The Product Added To Wishlist Successfully , Count = {CustomerProfile.WishlistCount}");
+                        HttpContext.Session.SetInt32("WishlistCount",CustomerProfile.WishlistCount);
+
+                        return RedirectToAction("Index", "Home");
                     }
                     else
                     {
@@ -66,6 +68,8 @@ namespace E_Commerce.Controllers
             {
                 string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
                 await wishlistService.RemoveProductFromUserWishlistAsync(UserId, productId);
+                var CustomerProfile = await wishlistService.GetCustomerProfileAsync(UserId);
+                HttpContext.Session.SetInt32("WishlistCount", CustomerProfile.WishlistCount);
             }
 
             return RedirectToAction("getUserWishlist");
@@ -76,6 +80,7 @@ namespace E_Commerce.Controllers
 
             var UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await wishlistService.ClearUserWishlistAsync(UserId);
+            HttpContext.Session.SetInt32("WishlistCount", 0);
             return RedirectToAction("getUserWishlist");
         }
 

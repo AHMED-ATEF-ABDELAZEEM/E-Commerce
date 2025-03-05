@@ -6,10 +6,10 @@ namespace E_Commerce.Models
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
-
         public DbSet<CustomerProfile> CustomerProfiles { get; set; }
-
         public DbSet<WishList> WishLists { get; set; }
+
+        public DbSet<CartItem> CartItems { get; set; }
 
         public AppDbContext()
         {
@@ -29,6 +29,9 @@ namespace E_Commerce.Models
         {
             builder.Entity<WishList>()
                 .HasKey(x => new { x.ProductId, x.CustomerId });
+
+            builder.Entity<CartItem>()
+                .HasKey(x => new {x.UserId,x.ProductId});
             base.OnModelCreating(builder);
         }
     }
