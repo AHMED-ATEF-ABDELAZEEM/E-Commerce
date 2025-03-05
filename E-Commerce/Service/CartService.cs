@@ -13,6 +13,8 @@ namespace E_Commerce.Service
         Task<CustomerProfile> GetCustomerProfileAsync (string UserId);
         //Task UpdateCustomerProfileAsync (CustomerProfile customerProfile);
 
+        Task ClearCartAsync (string UserId);
+
         Task AddProductToCartAsync(string ProductId, CustomerProfile CustomerProfile);
     }
     public class CartService : ICartService
@@ -42,6 +44,17 @@ namespace E_Commerce.Service
 
         }
 
+        public async Task ClearCartAsync(string UserId)
+        {
+            var CartItems = await CartRepository.GetUserCartItemsAsync(UserId);
+            if (CartItems != null)
+            {
+                var CustomerProfile = await CustomerProfileRepository.GetCustomerProfileAsync(UserId);
+                CustomerProfile.CartCount = 0;
+                await CartRepository.ClearUserCartAsync(CartItems);
+            }
+        }
+
         public async Task<CustomerProfile> GetCustomerProfileAsync(string UserId)
         {
             return await CustomerProfileRepository.GetCustomerProfileAsync(UserId);
@@ -49,7 +62,7 @@ namespace E_Commerce.Service
 
         public async Task<List<ShowProductAtCartVM>> getUserCartAsync(string UserId)
         {
-            var CartItem = await CartRepository.getCartItemsAsync(UserId);
+            var CartItem = await CartRepository.GetUserCartItemsWithProductAsync(UserId);
             return  CartItem.Select(x => new ShowProductAtCartVM
                     {
                         ProductId = x.ProductId,

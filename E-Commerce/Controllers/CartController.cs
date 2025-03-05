@@ -20,23 +20,7 @@ namespace E_Commerce.Controllers
             this.CartService = CartService;
         }
 
-        //public async Task<IActionResult> getUserCart()
-        //{
-        //    string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        //    var ProductAtCart = await context.CartItems
-        //        .Include(x => x.Product_ref)
-        //        .Where(x => x.UserId == UserId)
-        //        .Select(x => new ShowProductAtCartVM
-        //        {
-        //            ProductId = x.ProductId,
-        //            Name = x.Product_ref.Name,
-        //            Price = x.Product_ref.Price,
-        //            Quantaty = x.Quantaty,
-        //            TotalPrice = x.Product_ref.Price * x.Quantaty,
-        //            ImagePath = x.Product_ref.ImagePath
-        //        }).ToListAsync();
-        //    return View(ProductAtCart);
-        //}
+
         public async Task<IActionResult> getUserCart()
         {
             string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -44,44 +28,6 @@ namespace E_Commerce.Controllers
             return View(ProductAtCart);
         }
 
-        //public async Task<IActionResult> AddProductToCart(string ProductId)
-        //{
-        //    bool IsProductExist = await context.Products.AnyAsync(x => x.Id == ProductId);
-        //    if (IsProductExist)
-        //    {
-        //        string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        //        bool IsExistAtUserCart = await context.CartItems.AnyAsync(x => x.ProductId == ProductId && x.UserId == UserId);
-        //        if (IsExistAtUserCart)
-        //        {
-        //            return Content("This Product Is Already Exist At Cart");
-        //        }
-        //        else
-        //        {
-        //            var CustomerProfile = await context.CustomerProfiles.FirstOrDefaultAsync(x => x.CustomerId == UserId);
-        //            if (CustomerProfile.CartCount < 5)
-        //            {
-        //                var CartItem = new CartItem
-        //                {
-        //                    UserId = UserId,
-        //                    ProductId = ProductId,
-        //                    Quantaty = 1,
-        //                };
-        //                await context.CartItems.AddAsync(CartItem);
-        //                CustomerProfile.CartCount++;
-        //                await context.SaveChangesAsync();
-        //                HttpContext.Session.SetInt32("CartCount", CustomerProfile.CartCount);
-        //                return RedirectToAction("Index", "Home");
-        //            }
-        //            else
-        //            {
-        //                return Content("You Access To Max Number Of Product At Cart");
-        //            }
-
-        //        }
-
-        //    }
-        //    return Content("This Product Is Not Exist");
-        //}
 
 
         public async Task<IActionResult> AddProductToCart(string ProductId)
@@ -109,17 +55,25 @@ namespace E_Commerce.Controllers
         }
 
 
+        //public async Task<IActionResult> ClearUserCart()
+        //{
+        //    string UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    var CartItemList = await context.CartItems.Where(x => x.UserId == UserId).ToListAsync();
+        //    context.CartItems.RemoveRange(CartItemList);
+        //    var CustomerProfile = await context.CustomerProfiles.FirstOrDefaultAsync(x => x.CustomerId == UserId);
+        //    CustomerProfile.CartCount = 0;
+        //    await context.SaveChangesAsync();
+        //    HttpContext.Session.SetInt32("CartCount",0);
+        //    return RedirectToAction(nameof(getUserCart));
+        //}
+
         public async Task<IActionResult> ClearUserCart()
         {
-            string UserId = User.FindFirstValue(ClaimTypes.NameIdentifier); 
-            var CartItemList = await context.CartItems.Where(x => x.UserId == UserId).ToListAsync();
-            context.CartItems.RemoveRange(CartItemList);
-            var CustomerProfile = await context.CustomerProfiles.FirstOrDefaultAsync(x => x.CustomerId == UserId);
-            CustomerProfile.CartCount = 0;
-            await context.SaveChangesAsync();
-            HttpContext.Session.SetInt32("CartCount",0);
+            string UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            await CartService.ClearCartAsync(UserId);
+            HttpContext.Session.SetInt32("CartCount", 0);
             return RedirectToAction(nameof(getUserCart));
-        } 
+        }
 
         public async Task<IActionResult> RemoveProductFromCart (string productId)
         {

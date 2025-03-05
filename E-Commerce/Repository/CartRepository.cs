@@ -5,11 +5,15 @@ namespace E_Commerce.Repository
 {
     public interface ICartRepository
     {
-        Task<List<CartItem>> getCartItemsAsync(string UserId);
+        Task<List<CartItem>> GetUserCartItemsWithProductAsync(string UserId);
 
         Task<bool> IsProductExistAtUserCartAsync(string UserId,string ProductId);
 
         Task AddToCartAsync (CartItem cartItem);
+
+        Task<List<CartItem>> GetUserCartItemsAsync (string UserId);
+
+        Task ClearUserCartAsync (List<CartItem> cartItems);
     }
     public class CartRepository : ICartRepository
     {
@@ -25,7 +29,18 @@ namespace E_Commerce.Repository
             await context.SaveChangesAsync();
         }
 
-        public async Task<List<CartItem>> getCartItemsAsync(string UserId)
+        public async Task ClearUserCartAsync(List<CartItem> cartItems)
+        {
+            context.CartItems.RemoveRange(cartItems);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task<List<CartItem>> GetUserCartItemsAsync(string UserId)
+        {
+            return await context.CartItems.Where(x => x.UserId == UserId).ToListAsync();
+        }
+
+        public async Task<List<CartItem>> GetUserCartItemsWithProductAsync(string UserId)
         {
                 var CartItem = await context.CartItems
                 .Include(x => x.Product_ref)
