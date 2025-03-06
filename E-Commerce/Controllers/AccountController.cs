@@ -114,5 +114,46 @@ namespace E_Commerce.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult CreateAccount()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateAccount(CreateAdminAcountVM model)
+        {
+            if (model.Type != "Admin" && model.Type != "SuperAdmin")
+            {
+                ModelState.AddModelError("Type","Type Must Be Admin Or Super Admin");
+            }
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = new ApplicationUser();
+                user.Email = model.Email;
+                user.UserName = model.Name;
+                user.PhoneNumber = model.Phone;
+                user.PasswordHash = model.Password;
+                user.UserType = model.Type;
+
+                var result = await UserManager.CreateAsync(user,model.Password);
+                if (result.Succeeded)
+                {
+                    // Assign New User To User Role
+                    await UserManager.AddToRoleAsync(user, model.Type);
+                    return RedirectToAction("LogIn");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            return View(model);
+        }
+
     }
 }

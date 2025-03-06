@@ -63,24 +63,6 @@ namespace E_Commerce.Controllers
             return RedirectToAction(nameof(getUserCart));
         }
 
-        //public async Task<IActionResult> RemoveProductFromCart (string productId)
-        //{
-        //    string UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        //    var CartItem = await context.CartItems.FirstOrDefaultAsync(x => x.ProductId == productId && x.UserId == UserId);
-        //    if (CartItem != null) 
-        //    {
-        //        context.CartItems.Remove(CartItem);
-
-        //        var CustomerProfile = await context.CustomerProfiles.FirstOrDefaultAsync(x => x.CustomerId == UserId);
-        //        CustomerProfile.CartCount--;
-
-        //        context.CustomerProfiles.Update(CustomerProfile);
-        //        await context.SaveChangesAsync();
-        //        HttpContext.Session.SetInt32("CartCount", CustomerProfile.CartCount);
-        //        return RedirectToAction(nameof(getUserCart));
-        //    }
-        //    return Content("This Product Is Not Exist At Cart");
-        //}
 
         public async Task<IActionResult> RemoveProductFromCart(string productId)
         {

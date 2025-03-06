@@ -42,7 +42,7 @@ html, body {
 .Nav {
     display: flex;
     align-items: center;
-    width: 75%;
+    width: 65%;
     margin-left: 20px;
 }
 

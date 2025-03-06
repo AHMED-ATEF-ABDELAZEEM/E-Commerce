@@ -23,37 +23,53 @@
         <h2>E-Commerce</h2>
         <div class="Nav">
             <a asp-action="Index" asp-controller="Home">Home</a>
-            <a asp-action="getAllCategory" asp-controller="Category">Category</a>
-            <a asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a>
+            <a asp-action="Index" asp-controller="Home">Offer</a>
 
-            <!-- Wishlist -->
-            <a asp-action="getUserWishlist" asp-controller="Wishlist" class="position-relative">
-                Wishlist
-                @if(User.Identity.IsAuthenticated)
-                {
+
+            @if (User.IsInRole("User"))
+            {
+                <!-- Wishlist -->
+                <a asp-action="getUserWishlist" asp-controller="Wishlist" class="position-relative">
+                    Wishlist
                     <span id="wishlistCount" class="count-badge">@WishlistCount</span>
-                }
-            </a>
+                </a>
 
-            <!-- Cart -->
-            <a asp-action="getUserCart" asp-controller="Cart" class="position-relative">
-                Cart
-                @if (User.Identity.IsAuthenticated)
-                {
+                <!-- Cart -->
+                <a asp-action="getUserCart" asp-controller="Cart" class="position-relative">
+                    Cart
                     <span id="cartCount" class="count-badge">@CartCount</span>
-                }
-            </a>
+
+                </a>
+
+                <a asp-action="" asp-controller="">History</a>
+            }
+            @if(User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+            {
+                <a asp-action="getAllCategory" asp-controller="Category">Category</a>
+                <a asp-action="getProductsAtPadge" asp-route-padgeNumber="1" asp-route-Category="All" asp-controller="Product">Product</a>
+            }
+
+            @if (User.IsInRole("SuperAdmin"))
+            {
+                <a asp-action="" asp-controller="">Management</a>
+                <a asp-action="" asp-controller="">Orders</a>
+            }
 
             @if (User.Identity.IsAuthenticated)
             {
-                <a asp-action="Logout" asp-controller="Account">Logout</a>
                 <a asp-action="getAllCategory" asp-controller="Category">@User.Identity.Name</a>
+                <a asp-action="Logout" asp-controller="Account">Logout</a>               
             }
             else
             {
+                <a>About</a>
+                <a>Contact</a>
                 <a asp-action="Register" asp-controller="Account">Register</a>
                 <a asp-action="LogIn" asp-controller="Account">LogIn</a>
             }
+
+
+
         </div>
 
     </div>

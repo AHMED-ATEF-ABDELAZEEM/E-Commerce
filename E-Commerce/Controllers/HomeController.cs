@@ -22,7 +22,7 @@ namespace E_Commerce.Controllers
 
         public async Task<IActionResult> Index()
         {
-            if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated && User.IsInRole("User"))
             {
                 var UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
                 var CustomerProfile = await context.CustomerProfiles.FirstOrDefaultAsync(x => x.CustomerId == UserId);
