@@ -55,6 +55,7 @@ namespace E_Commerce.Controllers
         [HttpGet]
         public async Task<IActionResult> ConfirmDelete(string Id)
         {
+            await ProductService.UpdateCustomerProfileAsync(Id);
             await ProductService.DeleteAsync(Id);
             var Category = HttpContext.Session.GetString("Category");
             var padgeNumber = HttpContext.Session.GetInt32("PadgeNumber");

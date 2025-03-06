@@ -10,14 +10,19 @@ namespace E_Commerce.Service
         private IProductRepository ProductRepository;
         private ICategoryRepository CategoryRepository;
         private IWebHostEnvironment webHostEnvironment;
+        private ICustomerProfileRepository CustomerProfileRepository;
 
 
 
-        public ProductService(IProductRepository ProductRepository, ICategoryRepository CategoryRepository, IWebHostEnvironment webHostEnvironment)
+        public ProductService(IProductRepository ProductRepository,
+            ICategoryRepository CategoryRepository,
+            IWebHostEnvironment webHostEnvironment,
+            ICustomerProfileRepository customerProfileRepository)
         {
             this.ProductRepository = ProductRepository;
             this.CategoryRepository = CategoryRepository;
             this.webHostEnvironment = webHostEnvironment;
+            CustomerProfileRepository = customerProfileRepository;
         }
 
         private string GetImagePath(IFormFile Image)
@@ -68,8 +73,6 @@ namespace E_Commerce.Service
                 System.IO.File.Delete(FullImagePath);
             }
         }
-
-
 
         private async Task UpdateCategoryForDeleteProduct(string ProductId)
         {
@@ -273,6 +276,36 @@ namespace E_Commerce.Service
         public async Task<bool> IsProductExistForUpdateAsync(string ProductId, string ProductName)
         {
             return await ProductRepository.IsProductExitsForUpdateAsync(ProductId, ProductName);
+        }
+
+
+        private async Task UpdateCustomerProfileWishlistAsync (string ProductId)
+        {
+            var CustomerProfiles = await CustomerProfileRepository.GetCustomerProfileThatProductAtWishlistAsync(ProductId);
+            if (CustomerProfiles != null)
+            {
+                foreach (var customer in CustomerProfiles)
+                {
+                    customer.WishlistCount--;
+                }
+                await CustomerProfileRepository.UpdateCustomerProfileAsync(CustomerProfiles);
+            }
+
+        }
+
+        private async Task UpdateCustomerProfileCartAsync(string ProductId)
+        {
+            var CustomerProfiles = await CustomerProfileRepository.GetCustomerProfileThatProductAtCartAsync(ProductId);
+            if (CustomerProfiles != null)
+            {
+                CustomerProfiles.ForEach(x => x.CartCount--);
+            }
+        }
+
+        public async Task UpdateCustomerProfileAsync(string ProductId)
+        {
+            await UpdateCustomerProfileWishlistAsync(ProductId);
+            await UpdateCustomerProfileCartAsync(ProductId);
         }
     }
 }

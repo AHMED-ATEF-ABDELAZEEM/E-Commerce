@@ -8,6 +8,11 @@ namespace E_Commerce.Repository
         Task<CustomerProfile> GetCustomerProfileAsync(string UserId);
 
         Task UpdateCustomerProfileAsync (CustomerProfile customerProfile);
+
+        Task UpdateCustomerProfileAsync (List<CustomerProfile> customerProfiles);
+
+        Task<List<CustomerProfile>> GetCustomerProfileThatProductAtWishlistAsync(string ProductId);
+        Task<List<CustomerProfile>> GetCustomerProfileThatProductAtCartAsync(string ProductId);
     }
 
 
@@ -24,6 +29,28 @@ namespace E_Commerce.Repository
         public async Task<CustomerProfile> GetCustomerProfileAsync(string UserId)
         {
             return await context.CustomerProfiles.FirstOrDefaultAsync(x => x.CustomerId == UserId);
+        }
+
+        public async Task<List<CustomerProfile>> GetCustomerProfileThatProductAtCartAsync(string ProductId)
+        {
+          return await context.CartItems.Include(x => x.CustomerProfile_ref)
+                .Where(x => x.ProductId == ProductId)
+                .Select(x => x.CustomerProfile_ref)
+                .ToListAsync();
+        }
+
+        public async Task<List<CustomerProfile>> GetCustomerProfileThatProductAtWishlistAsync(string ProductId)
+        {
+            return await context.WishLists.Include(x => x.Customer_ref)
+                .Where(x => x.ProductId == ProductId)
+                .Select(x => x.Customer_ref)
+                .ToListAsync();
+        }
+
+        public async Task UpdateCustomerProfileAsync(List<CustomerProfile> customerProfiles)
+        {
+            context.CustomerProfiles.UpdateRange(customerProfiles);
+            await context.SaveChangesAsync();
         }
 
         public async Task UpdateCustomerProfileAsync(CustomerProfile customerProfile)

@@ -14,5 +14,7 @@ namespace E_Commerce.Service
         Task<bool> IsProductExistForUpdateAsync(string ProductId,string ProductName);
         PadgeInformationVM getPadgeInformation(int padgeNumber, int padgeSize, string? Category);
 
+        Task UpdateCustomerProfileAsync(string ProductId);
+
     }
 }
