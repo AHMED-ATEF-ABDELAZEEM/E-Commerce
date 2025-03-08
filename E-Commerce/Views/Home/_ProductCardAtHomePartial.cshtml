@@ -8,10 +8,13 @@
             <div class="card-content">
                 <p class="card-title">@Model.Name</p>
                 <p class="card-price">@Model.Price $</p>
+            @if (User.IsInRole("User"))
+            {
                 <div class="buttons">
                     <a asp-action="AddProductToWishList" asp-route-ProductId="@Model.ProductId" asp-controller="Wishlist" class="btn btn-success">WishList</a>
                     <a asp-action="AddProductToCart" asp-controller="Cart" asp-route-ProductId="@Model.ProductId" class="btn btn-success">Cart</a>
                 </div>
+            }
             </div>  
         </div>
 </a>

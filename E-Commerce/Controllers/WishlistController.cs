@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace E_Commerce.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")]
     public class WishlistController : Controller
     {
         private readonly IWishlistService wishlistService;
@@ -64,11 +64,11 @@ namespace E_Commerce.Controllers
 
         public async Task<IActionResult> RemoveProductFromWishlist (string productId)
         {
-            if (await wishlistService.IsProductExist(productId))
+            string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            if (await wishlistService.IsProductExistAtUserWishlistAsync(UserId,productId))
             {
-                string UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                await wishlistService.RemoveProductFromUserWishlistAsync(UserId, productId);
                 var CustomerProfile = await wishlistService.GetCustomerProfileAsync(UserId);
+                await wishlistService.RemoveProductFromUserWishlistAsync(productId, CustomerProfile);
                 HttpContext.Session.SetInt32("WishlistCount", CustomerProfile.WishlistCount);
             }
 

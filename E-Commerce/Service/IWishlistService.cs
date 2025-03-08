@@ -19,7 +19,7 @@ namespace E_Commerce.Service
 
         Task<List<ProductAtHomeVM>> GetProductsAtUserWishlistAsync(string UserId);
 
-        Task RemoveProductFromUserWishlistAsync(string UserId, string ProductId);
+        Task RemoveProductFromUserWishlistAsync(string ProductId,CustomerProfile customerProfile);
 
         Task ClearUserWishlistAsync (string UserId);
     }
@@ -74,15 +74,14 @@ namespace E_Commerce.Service
             }).ToList();
         }
 
-        public async Task RemoveProductFromUserWishlistAsync(string UserId, string ProductId)
+        public async Task RemoveProductFromUserWishlistAsync(string ProductId, CustomerProfile customerProfile)
         {
-            var DeleteCount =  await wishlistRepository.RemoveProductFromUserWishlist(UserId, ProductId);
+            var DeleteCount =  await wishlistRepository.RemoveProductFromUserWishlist(customerProfile.CustomerId, ProductId);
             if (DeleteCount == 1)
             {
-                var CustomerProfile = await customerProfileRepository.GetCustomerProfileAsync(UserId);
-                CustomerProfile.WishlistCount--;
-                await customerProfileRepository.UpdateCustomerProfileAsync(CustomerProfile);
-            }
+                customerProfile.WishlistCount--;
+                await customerProfileRepository.UpdateCustomerProfileAsync(customerProfile);
+            }            
         }
 
         public async Task ClearUserWishlistAsync(string UserId)

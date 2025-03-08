@@ -23,7 +23,6 @@
         <h2>E-Commerce</h2>
         <div class="Nav">
             <a asp-action="Index" asp-controller="Home">Home</a>
-            <a asp-action="Index" asp-controller="Home">Offer</a>
 
 
             @if (User.IsInRole("User"))
@@ -62,8 +61,6 @@
             }
             else
             {
-                <a>About</a>
-                <a>Contact</a>
                 <a asp-action="Register" asp-controller="Account">Register</a>
                 <a asp-action="LogIn" asp-controller="Account">LogIn</a>
             }
